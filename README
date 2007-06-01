@@ -32,7 +32,8 @@ Usage
 installation:
 -------------
 
-	script/plugin install http://globalite.googlecode.com/svn/trunk/ globalite
+	script/plugin install http://globalite.googlecode.com/svn/trunk/
+rename the vendor/plugins/trunk => vendor/plugins/globalite
 or from your vendor/plugins folder:
 	svn checkout http://globalite.googlecode.com/svn/trunk/ globalite
 

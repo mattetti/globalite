@@ -1,1 +1,1 @@
-# Install hook code here
+# Nothing needs to be installed

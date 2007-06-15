@@ -1,5 +1,5 @@
-Globalite
-=========
+=Globalite
+
 
 Globalite is meant to be a breed of the best internationalization/localization plugins available for Rails. 
 
@@ -15,8 +15,7 @@ The Locale is set on the user's session making Globalite a perfect solution for 
 The developer can pass dynamic values to be used in the localization.
 
 
-What's the difference between Globalite and the other existing l10n/i18n plugins?
----------------------------------------------------------------------------------
+==What's the difference between Globalite and the other existing l10n/i18n plugins?
 
 Gibberish is a nice plugin but it doesn't handle locales, you can't have your application in British English and American English. I also don't really like the syntax :p I based the UI localization of Globalite on Chris' work on Gibberish.
 
@@ -26,19 +25,16 @@ Also, Globalite doesn't have the concept of a base language. Mainly because I th
 
 
 
-Usage
-=====
+==Usage
 
-installation:
--------------
+===installation:
 
 	script/plugin install http://globalite.googlecode.com/svn/trunk/
 rename the vendor/plugins/trunk => vendor/plugins/globalite
 or from your vendor/plugins folder:
 	svn checkout http://globalite.googlecode.com/svn/trunk/ globalite
 
-UI Localization:
-----------------
+===UI Localization:
 
 Create a lang folder at the root of your project. Add your localization files in the lang/ui folder if you want to localize your interface. 
 
@@ -61,8 +57,7 @@ You can also pass values to the localization, and the translator can do whatever
 Note that variables can be used in any order the translator wants	
 	
 
-Rails Localization:
--------------------
+===Rails Localization:
 
 Localize a time object by using a predefined format (defined in the date_helper_time_formats variable that you can find  in globalite/lang/rails/[lang].yml)
 
@@ -94,28 +89,23 @@ Get a distance of time in words localized.
 Active record errors are automatically rendered in the locale language
 
 
-Notes
------
+====Notes
 
 
 
-FAQ:
-===
+==FAQ:
 
-Why did you call your plugin 'Globalite'? 
------------------------------------------
+===Why did you call your plugin 'Globalite'? 
 
-Globalize was already taken ;) Most seriously, I was looking for a i18n/l10n solution for a project I was working on, after few hours testing Globalize Josh http://joshknowles.com, Matt http://heidmotron.com/ and I http://railsontherun.com saw it wouldn't work for us. Since we only had the choice between very simple solutions and a complicated solution, I decided to make a "lite" version of Globalize ;)
+Globalize was already taken ;) Most seriously, I was looking for a i18n/l10n solution for a project I was working on, after few hours testing Globalize, Josh http://joshknowles.com, Matt http://heidmotron.com/ and I http://railsontherun.com saw it wouldn't work for us. Since we only had the choice between very simple solutions and a complicated solution, I decided to make a "lite" version of Globalize ;)
 
-TODO:
-=====
+==TODO:
 
 - add support for pluralization
 - content translation
 
 
-Internationalization, Localization, Locale:
-===========================================
+===Internationalization, Localization, Locale:
 
 Internationalization refers to the process of modifying an application’s design so that it can support 
 locale differences like text orientation, currency, date and time format, sorting, and so forth. This can be done 
@@ -128,30 +118,27 @@ en-US. Locales are specified by RFC 3066 and consist of two parts. The first is 
 uses lowercase letters. The second is usually an ISO 3166 country code in uppercase letters.
 [from Ruby on Rails Commerce (Hellsten, Laine)]
 
-CREDITS:
-========
+===CREDITS:
 
-Some code was 'borrowed' from different projects such as:
+Some code was very influenced from different projects such as:
 
 * Gibberish http://require.errtheblog.com/plugins/browser/gibberish written by Chris Wanstrath (http://errtheblog.com)
 * Globalize http://www.globalize-rails.org written by too many people to list them here ;)
-* LocalizationSimplified (L10n-simplified) written By Jesper Rønn-Jensen ( http://justaddwater.dk/ )
+* LocalizationSimplified (L10n-simplified) written By Jesper Ronn-Jensen ( http://justaddwater.dk/ )
 
 
-Author:
-=======
+===Author:
 
 Matt Aimonetti  http://railsontherun.com  mattaimonetti AT gmail DOT com
 
 
-Contributors:
-=============
+===Contributors:
 
 your name here if you submit a patch :)
 
 
-More info:
-==========
+===More info:
 
 http://code.google.com/p/globalite/
+
 http://railsontherun.com/globalite

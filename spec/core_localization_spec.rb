@@ -1,3 +1,6 @@
+# This examples can only be run if the plugin is installed in a Rails app
+# Requires RSpec plugin or gem
+
 require File.dirname(__FILE__) + '/helpers/spec_helper'
 include ActionView::Helpers::DateHelper
 include ActionView::Helpers::NumberHelper

@@ -20,7 +20,7 @@ date_helper_half_a_minute: une demi-minute
 date_helper_less_than_a_minute: moins d'une minute
 date_helper_one_minute: 1 minute
 date_helper_x_minutes: %d minutes
-date_helper_one_hour: à peut près 1 heure
+date_helper_one_hour: à peu près 1 heure
 date_helper_x_hours: à peu près %d heures
 date_helper_one_day: 1 jour
 date_helper_x_days: %d jours

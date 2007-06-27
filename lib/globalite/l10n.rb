@@ -67,13 +67,13 @@ module Globalite
       localize_rails
       @@current_language
     end
-
+    
     # Set the current country code (ISO 3166 country code in uppercase letters)
     # Usage:
     # Globalite.current_country = 'US' or Globalite.current_country = :fr
     # Will store the current country code if supported 
     # Will try to automatically find the language for your country
-    # If the country isn't unknown from the system, the country will be set as :*
+    # If the country isn't unknown to the system, the country will be set as :*
     #
     def current_country=(country)
       load_localization! if defined? RAILS_ENV && RAILS_ENV == 'development'
@@ -161,6 +161,7 @@ module Globalite
           # if a country is defined
           if File.basename(file, '.*')[3,5]
             country = File.basename(file, '.*')[3,5].upcase.to_sym
+            @@countries <<  country if ( country != :* && !@@countries.include?(country) )
             if locales.include?("#{lang}-#{country}".to_sym)
               @@locales["#{lang}-#{country}".to_sym].merge(YAML.load_file(file).symbolize_keys)
             else

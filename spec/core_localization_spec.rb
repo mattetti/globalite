@@ -4,7 +4,6 @@
 require File.dirname(__FILE__) + '/helpers/spec_helper'
 include ActionView::Helpers::DateHelper
 include ActionView::Helpers::NumberHelper
-include ActionView::Helpers::DateHelper
 include ActionView::Helpers::FormOptionsHelper
 
 describe "when Rails is loaded" do

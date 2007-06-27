@@ -39,7 +39,7 @@ or from your vendor/plugins folder:
 Create a lang folder at the root of your project. Add your localization files in the lang/ui folder if you want to localize your interface. 
 
 Declare the current locale or language > 
-	Globalite.current_language :fr
+	Globalite.language = :fr
 Localize a key > 
 	:localization_key.l 
 or 
@@ -61,7 +61,7 @@ Note that variables can be used in any order the translator wants
 
 Localize a time object by using a predefined format (defined in the date_helper_time_formats variable that you can find  in globalite/lang/rails/[lang].yml)
 
-	Globalite.current_language = :fr
+	Globalite.language = :fr
 	Time.now.l(:long)  
 
 Localize a date object by using a predefined format (defined in the date_helper_date_formats variable that you can find  in globalite/lang/rails/[lang].yml)
@@ -84,14 +84,14 @@ Get a number returned in currency, for instance if the locale was set to 'fr' th
 	number_to_currency(123)	
 
 Get a distance of time in words localized.
-	distance_of_time_in_words(Time.mktime(2005, 6, 4, 15), Time.now)
+	distance_of_time_in_words(10.minutes.ago, Time.now)
 
 Active record errors are automatically rendered in the locale language
 
 
 ====Notes
 
-
+Check on the tests in the spec folder for more examples.
 
 ==FAQ:
 
@@ -102,7 +102,7 @@ Globalize was already taken ;) Most seriously, I was looking for a i18n/l10n sol
 ==TODO:
 
 - add support for pluralization
-- content translation
+- Model i18n/l10n
 
 
 ===Internationalization, Localization, Locale:

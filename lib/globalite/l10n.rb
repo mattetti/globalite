@@ -33,25 +33,25 @@ module Globalite
     def current_language
       @@current_language || default_language
     end
-    alias language current_language
+    alias :language :current_language
 
     @@current_country = nil
-    def current_country
+    def country
       @@current_country || default_country
     end
-    alias country current_country
+    alias :current_country :country 
 
     def current_locale
       "#{current_language}-#{current_country}".to_sym
     end
-    alias locale current_locale
+    alias :locale :current_locale
     
     # Set the current language ( ISO 639-1 language code in lowercase letters)
     # Usage:
-    # Globalite.current_language = 'fr' or Globalite.current_language = :Fr
+    # Globalite.language = 'fr' or Globalite.language = :Fr
     # Will save the current language code if available, otherwise nada, switching back to the previous language
     #
-    def current_language=(language)
+    def language=(language)
       
       language = language.to_s.downcase.to_sym if language.class == Symbol
       language = language.downcase.to_sym if language.class == String && !language.empty?
@@ -67,15 +67,16 @@ module Globalite
       localize_rails
       @@current_language
     end
+    alias :current_language= :language= 
     
     # Set the current country code (ISO 3166 country code in uppercase letters)
     # Usage:
-    # Globalite.current_country = 'US' or Globalite.current_country = :fr
+    # Globalite.country = 'US' or Globalite.country = :fr
     # Will store the current country code if supported 
     # Will try to automatically find the language for your country
     # If the country isn't unknown to the system, the country will be set as :*
     #
-    def current_country=(country)
+    def country=(country)
       load_localization! if defined? RAILS_ENV && RAILS_ENV == 'development'
       country = country.to_s.upcase.to_sym if country.class == Symbol
       country = country.upcase.to_sym if country.class == String && !country.empty?
@@ -88,7 +89,7 @@ module Globalite
             @new_language = key.to_s.split('-')[0].downcase.to_sym
           end
         end
-        if @new_language
+        if @new_language && @@locales.include?("#{@new_language}-#{country}".to_sym)
           @@current_language = @new_language 
           @@current_country = country 
         end
@@ -98,10 +99,12 @@ module Globalite
       Locale.update_session_locale
       @@current_country
     end
+    alias :current_country= :country=
     
-    def current_locale=(locale)
+    def locale=(locale)
       Locale.set_code(locale)
     end
+    alias :current_locale= :locale=
 
     @@localization_sources = []
     def add_localization_source(path)
@@ -114,29 +117,33 @@ module Globalite
     end
 
     # List localizations for the current locale
-    def localizations
-        if !locales.include?(Locale.code) 
-          locales.each { |key| @t_locale = key if key.to_s.include?("#{@@current_language.to_s}") }
-          @@locales[@t_locale] || {}
-        else 
-          @@locales[Locale.code] || {}
-        end  
+    def localizations 
+      @@locales[Locale.code] || {} 
     end
     
     # Returns the translation for the key, a string can be passed to replaced a missing translation
     # TODO support interpolation of passed arguments
-    def localize(key, string='__localization_missing__', args={})
+    def localize(key, error_msg='__localization_missing__', args={})
       return if reserved_keys.include? key
-      localized = localizations[key] || string
-      localized = interpolate_string(localized.dup, args.dup) if localized.class == String
+      localized = localizations[key] || error_msg
+      
+      # Get translations from another country but in the same language if Globalite can't find a translation for my locale
+      if localized == error_msg
+        locales.each do |t_locale|  
+          if t_locale.to_s.include?("#{current_language.to_s}-") && t_locale != Locale.code
+              localized =  @@locales[t_locale][key] || error_msg
+          end  
+        end
+      end  
+      localized = interpolate_string(localized.dup, args.dup) if localized.class == String && localized != error_msg
       localized
     end
-    alias loc localize
+    alias :loc :localize
     
     def localize_with_args(key, args={})
       localize(key, '_localization missing_', args)
     end
-    alias l_with_args localize_with_args
+    alias :l_with_args :localize_with_args
 
     def add_reserved_key(*key)
       (@@reserved_keys += key.flatten).uniq!
@@ -150,7 +157,7 @@ module Globalite
     end
 
     # Loads ALL the UI localization in memory, I might want to refactor this later on. 
-    # (can be hard on the memory if you load 25 languages with 900 strings in each)
+    # (can be hard on the memory if you load 25 languages with 900 entries each)
     def load_localization!
       reset_l10n_data
       

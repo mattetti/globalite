@@ -13,14 +13,14 @@ describe "when Rails is loaded" do
   end
   
   it "should have loaded fr" do
-    Globalite.locales.should include(:"fr-*")
+    Globalite.locales.should include(:"fr-FR")
   end  
     
   it "should have loaded the rails localization file in English and French" do
     :error_message_inclusion.l.should == "is not included in the list"
-    Globalite.current_language = :fr
-    Globalite.locales.should include(:"fr-*")
-    Globalite.locale.should == :"fr-*"
+    Globalite.locale = :"fr-FR"
+    Globalite.locales.should include(:"fr-FR")
+    Globalite.locale.should == :"fr-FR"
     Globalite.localizations.keys.should include(:error_message_inclusion)
     Globalite.localizations[:error_message_inclusion].should_not be(nil)
     :error_message_inclusion.l.should == "n'est pas inclut dans la liste"
@@ -36,7 +36,7 @@ describe "when Rails is loaded" do
     from = Time.mktime(2004, 3, 6, 21, 41, 18)
     distance_of_time_in_words(from, Time.mktime(2004, 3, 6, 21, 41, 25)).should == "less than a minute"
     distance_of_time_in_words(Time.mktime(2004, 3, 7, 1, 20), from).should == "about 4 hours"
-    Globalite.current_language = :fr
+    Globalite.language = :fr
     distance_of_time_in_words(from, Time.mktime(2004, 3, 6, 21, 41, 25)).should == "moins d'une minute"
     distance_of_time_in_words(Time.mktime(2004, 3, 7, 1, 20), from).should == "à peu près 4 heures"
   end
@@ -66,13 +66,13 @@ describe "when Rails is loaded" do
   
   it "datetime_select should be localized" do
     select_datetime(nil, :prefix => "date[first]").should include('January')
-    Globalite.current_language = :fr
+    Globalite.language = :fr
     select_datetime(nil, :prefix => "date[first]").should include('Janvier')
   end
   
   it "the months names and their abbreviations should be localized" do
     select_month(Time.mktime(2003, 8, 16)).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">January</option>\n<option value=\"2\">February</option>\n<option value=\"3\">March</option>\n<option value=\"4\">April</option>\n<option value=\"5\">May</option>\n<option value=\"6\">June</option>\n<option value=\"7\">July</option>\n<option value=\"8\" selected=\"selected\">August</option>\n<option value=\"9\">September</option>\n<option value=\"10\">October</option>\n<option value=\"11\">November</option>\n<option value=\"12\">December</option>\n</select>\n)
-    Globalite.current_language = :fr
+    Globalite.language = :fr
     select_month(Time.mktime(2003, 8, 16)).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">Janvier</option>\n<option value=\"2\">Février</option>\n<option value=\"3\">Mars</option>\n<option value=\"4\">Avril</option>\n<option value=\"5\">Mai</option>\n<option value=\"6\">Juin</option>\n<option value=\"7\">Juillet</option>\n<option value=\"8\" selected=\"selected\">Août</option>\n<option value=\"9\">Septembre</option>\n<option value=\"10\">Octobre</option>\n<option value=\"11\">Novembre</option>\n<option value=\"12\">Décembre</option>\n</select>\n)
   end
   
@@ -87,7 +87,7 @@ describe "when Rails is loaded" do
   it 'time should be localized' do
     t = Time.parse('2006-12-25 13:55')
     t.to_formatted_s(:long).should == 'December 25, 2006 13:55'
-    Globalite.current_language = :fr
+    Globalite.language = :fr
     t.l(:long).should == '25 Décembre, 2006 13:55'
     t.l(:short).should == '25 Déc, 13:55'
     # custom format

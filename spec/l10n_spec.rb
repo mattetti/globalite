@@ -14,6 +14,18 @@ describe "After loading languages, Globalite" do
     Globalite.locales.should include(:"en-US")
   end
   
+  it 'should have loaded the Rails localizations' do
+    [:"es-*", :"fr-FR", :"pt-PT", :"en-US", :"fr-*", :"it-*", :"es-ES", :"pt-BR", :"en-UK"].each do |locale|
+      Globalite.locales.should include(locale)
+    end
+    [:UK, :US, :ES, :FR, :BR, :PT].each do |country|
+      Globalite.countries.should include(country)
+    end
+    [:en, :es, :fr, :it, :pt].each do |language|
+      Globalite.languages.should include(language)
+    end
+  end
+  
   it 'should have a list of unique languages' do
     Globalite.languages.should be_an_instance_of(Array)
     Globalite.languages.should == Globalite.languages.uniq
@@ -74,11 +86,11 @@ describe "After loading languages, Globalite" do
     Globalite.current_locale.should == 'en-US'.to_sym
   end
 
-  it "should not be able to change the current country if there's no locale for it" do
-    Globalite.current_locale.should == "en-*".to_sym
-    Globalite.current_country = :FR
-    Globalite.current_locale.should == "en-*".to_sym
-  end  
+  # it "should not be able to change the current country if there's no locale for it" do
+  #   Globalite.current_locale.should == "en-*".to_sym
+  #   Globalite.current_country = :FR
+  #   Globalite.current_locale.should == "en-*".to_sym
+  # end  
 
   it "should let you assign a valid locale" do
     Globalite.current_locale = :"fr-*"

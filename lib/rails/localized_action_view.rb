@@ -6,7 +6,6 @@ module ActionView
     #Modify DateHelper distance_of_time_in_words
     module DateHelper
       
-      alias_method :old_distance_of_time_in_words, :distance_of_time_in_words
       def distance_of_time_in_words(from_time, to_time = 0, include_seconds = false)
         from_time = from_time.to_time if from_time.respond_to?(:to_time)
         to_time = to_time.to_time if to_time.respond_to?(:to_time)
@@ -77,18 +76,16 @@ module ActionView
 
     module DateHelper
       
-      alias_method :orig_date_select, :date_select
       # Blend default options with localized :order option
       def date_select(object_name, method, options = {})
         options.reverse_merge!( :order => :date_helper_order.l )
-        orig_date_select(object_name, method, options)
+        InstanceTag.new(object_name, method, self, nil, options.delete(:object)).to_date_select_tag(options)
       end
 
-      alias_method :orig_datetime_select, :datetime_select
       # Blend default options with localized :order option
       def datetime_select(object_name, method, options = {})
         options.reverse_merge!( :order => :date_helper_order.l )
-        orig_datetime_select(object_name, method, options)
+        InstanceTag.new(object_name, method, self, nil, options.delete(:object)).to_datetime_select_tag(options)
       end
 
       def select_month(date, options = {})

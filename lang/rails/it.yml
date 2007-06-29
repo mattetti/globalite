@@ -1,5 +1,5 @@
 
-
+locale_name: Italiano
 # ActiveRecord::Errors.default_error_messages
 error_message_inclusion: non è incluso nella lista
 error_message_exclusion: è riservato
@@ -30,7 +30,7 @@ date_helper_one_year: un anno
 date_helper_x_years: %d anni
 
 # DON'T TRANSLATE, just order
-date_helper_order: [day, month, year] #default Rails is US ordered: :order => [:year, :month, :day]
+date_helper_order: [:day, :month, :year] #default Rails is US ordered: :order => [:year, :month, :day]
 
 date_helper_date_formats: # DON'T  TRANSLATE, RE ORDER
   default: "%Y-%m-%d"

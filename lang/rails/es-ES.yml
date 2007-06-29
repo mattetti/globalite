@@ -1,3 +1,4 @@
+locale_name: Español (España)
 # Spanish translation file. 
 # Translation by Luis Villa del Campo (www.grancomo.com)
 
@@ -31,7 +32,7 @@ date_helper_one_year: 1 año
 date_helper_x_years: %d años
 
 # DON'T TRANSLATE, just order
-date_helper_order: [day, month, year] #default Rails is US ordered: :order => [:year, :month, :day]
+date_helper_order: [:day, :month, :year] #default Rails is US ordered: :order => [:year, :month, :day]
 
 date_helper_date_formats: # DON'T  TRANSLATE, RE ORDER
   default: "%Y-%m-%d"

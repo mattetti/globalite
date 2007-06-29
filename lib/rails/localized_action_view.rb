@@ -76,19 +76,43 @@ module ActionView
 
     module DateHelper
       
-      # Blend default options with localized :order option
+      # Blend default options with localized :order option and add locale support
+      # Example:
+      # <% form_for(@page) do |f| %>
+      # <p>
+      #   <b><%= :published_date.l_in(@locale) %></b><br />
+      #   <%= f.date_select :published_date, :locale => @locale %>
+      # </p>
+      #
       def date_select(object_name, method, options = {})
+        if options[:locale]
+          @original_locale = Locale.code
+          Locale.code = options[:locale]
+        end 
         options.reverse_merge!( :order => :date_helper_order.l )
-        InstanceTag.new(object_name, method, self, nil, options.delete(:object)).to_date_select_tag(options)
+        @selector = InstanceTag.new(object_name, method, self, nil, options.delete(:object)).to_date_select_tag(options)
+        Locale.code = @original_locale if options[:locale]
+        return @selector
       end
 
       # Blend default options with localized :order option
+      # Look at date_select for an usage example
       def datetime_select(object_name, method, options = {})
+        if options[:locale]
+          @original_locale = Locale.code
+          Locale.code = options[:locale]
+        end
         options.reverse_merge!( :order => :date_helper_order.l )
-        InstanceTag.new(object_name, method, self, nil, options.delete(:object)).to_datetime_select_tag(options)
+        @selector = InstanceTag.new(object_name, method, self, nil, options.delete(:object)).to_datetime_select_tag(options)
+        Locale.code = @original_locale if options[:locale]
+        return @selector
       end
 
       def select_month(date, options = {})
+        if options[:locale]
+          @original_locale = Locale.code
+          Locale.code = options[:locale]
+        end
         val = date ? (date.kind_of?(Fixnum) ? date : date.month) : ''
         if options[:use_hidden]
           hidden_html(options[:field_name] || 'month', val, options)
@@ -112,8 +136,10 @@ module ActionView
               %(<option value="#{month_number}">#{month_name}</option>\n)
             )
           end
-          select_html(options[:field_name] || 'month', month_options, options)
+          @selector = select_html(options[:field_name] || 'month', month_options, options)
         end
+        Locale.code = @original_locale if options[:locale]
+        return @selector
       end
       
     end #module DateHelper

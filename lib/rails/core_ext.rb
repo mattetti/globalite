@@ -11,9 +11,13 @@ module SymbolExtension # :nodoc:
   end
   alias :l :localize
   
+  def l_in(locale, args={})
+    Globalite.localize(self, '_localization_missing_', args, locale) unless locale.nil?
+  end
+  
   def localize_with_args(args={})
     Globalite.localize(self, '_localization_missing_', args)
   end
-  alias l_with_args localize_with_args
+  alias :l_with_args :localize_with_args
   
 end

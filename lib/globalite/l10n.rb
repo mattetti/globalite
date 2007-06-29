@@ -1,5 +1,5 @@
 module Globalite 
-  
+
   module L10n
     @@default_language = :en
     attr_reader :default_language
@@ -14,11 +14,11 @@ module Globalite
     def languages
       @@languages
     end
-    
+
     def default_language
       @@default_language
     end
-    
+
     @@countries = []
     def countries
       @@countries
@@ -27,6 +27,16 @@ module Globalite
     @@locales = {}
     def locales
       @@locales.keys
+    end
+
+    @@rails_locales = {}
+    def rails_locales
+      @@rails_locales
+    end
+
+    @@ui_locales = {}
+    def ui_locales
+      @@ui_locales
     end
 
     @@current_language = nil
@@ -45,14 +55,14 @@ module Globalite
       "#{current_language}-#{current_country}".to_sym
     end
     alias :locale :current_locale
-    
+
     # Set the current language ( ISO 639-1 language code in lowercase letters)
     # Usage:
     # Globalite.language = 'fr' or Globalite.language = :Fr
     # Will save the current language code if available, otherwise nada, switching back to the previous language
     #
     def language=(language)
-      
+
       language = language.to_s.downcase.to_sym if language.class == Symbol
       language = language.downcase.to_sym if language.class == String && !language.empty?
 
@@ -62,13 +72,13 @@ module Globalite
           @@current_country = :*
         end
       end
-      
-      Locale.update_session_locale
+
+      #Locale.update_session_locale
       localize_rails
       @@current_language
     end
     alias :current_language= :language= 
-    
+
     # Set the current country code (ISO 3166 country code in uppercase letters)
     # Usage:
     # Globalite.country = 'US' or Globalite.country = :fr
@@ -96,11 +106,11 @@ module Globalite
       else  
         @@current_country = :*
       end
-      Locale.update_session_locale
+      #Locale.update_session_locale
       @@current_country
     end
     alias :current_country= :country=
-    
+
     def locale=(locale)
       Locale.set_code(locale)
     end
@@ -111,7 +121,7 @@ module Globalite
       @@localization_sources << path
       load_localization!
     end
-    
+
     def localization_sources
       @@localization_sources
     end
@@ -120,26 +130,37 @@ module Globalite
     def localizations 
       @@locales[Locale.code] || {} 
     end
-    
-    # Returns the translation for the key, a string can be passed to replaced a missing translation
-    # TODO support interpolation of passed arguments
-    def localize(key, error_msg='__localization_missing__', args={})
+
+    # Return the translation for the key, a string can be passed to replaced a missing translation
+    def localize(key, error_msg='__localization_missing__', args={}, locale=nil)
       return if reserved_keys.include? key
+
+      # Set a temporary Locale to support the localized_in method
+      #
+      unless locale.nil?
+        @original_locale = Locale.code
+        Locale.set_code(locale)
+      end
       localized = localizations[key] || error_msg
-      
       # Get translations from another country but in the same language if Globalite can't find a translation for my locale
+      #
       if localized == error_msg
         locales.each do |t_locale|  
           if t_locale.to_s.include?("#{current_language.to_s}-") && t_locale != Locale.code
-              localized =  @@locales[t_locale][key] || error_msg
+            localized =  @@locales[t_locale][key] || error_msg
           end  
         end
       end  
       localized = interpolate_string(localized.dup, args.dup) if localized.class == String && localized != error_msg
-      localized
+      # Set the locale back to normal
+      #
+      unless locale.nil?
+        Locale.code = @original_locale
+      end
+      return localized
     end
     alias :loc :localize
-    
+
     def localize_with_args(key, args={})
       localize(key, '_localization missing_', args)
     end
@@ -154,13 +175,15 @@ module Globalite
       @@languages = []
       @@countries = []
       @@locales = {}
+      @@rails_locales = {}
+      @@ui_locales = {}
     end
 
     # Loads ALL the UI localization in memory, I might want to refactor this later on. 
     # (can be hard on the memory if you load 25 languages with 900 entries each)
     def load_localization!
       reset_l10n_data
-      
+
       # Load the rails localization
       if rails_localization_files
         rails_localization_files.each do |file|
@@ -173,6 +196,7 @@ module Globalite
               @@locales["#{lang}-#{country}".to_sym].merge(YAML.load_file(file).symbolize_keys)
             else
               @@locales["#{lang}-#{country}".to_sym] = YAML.load_file(file).symbolize_keys
+              @@rails_locales[locale_name("#{lang}-#{country}")] = "#{lang}-#{country}".to_sym
             end
             @@languages << lang unless @@languages.include? lang
           else
@@ -183,6 +207,8 @@ module Globalite
           end
         end
       end
+      alias :load_translations! :load_localization!
+      alias :load_localizations! :load_localization!
       
       # Load the UI localization
       if ui_localization_files
@@ -198,17 +224,27 @@ module Globalite
           @file_locale = "#{lang}-#{country}".to_sym
           if locales.include?(@file_locale)
             @@locales[@file_locale] = @@locales[@file_locale].merge(YAML.load_file(file).symbolize_keys)
+            @@ui_locales[locale_name("#{lang}-#{country}")] = "#{lang}-#{country}".to_sym
           else  
             @@locales[@file_locale] = YAML.load_file(file).symbolize_keys
+            @@ui_locales[locale_name("#{lang}-#{country}")] = "#{lang}-#{country}".to_sym
           end
         end
       end
       localize_rails
       # Return the path of the localization files
-       return "#{ui_localization_files} | #{rails_localization_files}".to_s
+      return "#{ui_localization_files} | #{rails_localization_files}".to_s
+    end
+
+    def locale_name(locale_code)
+      locale_code = locale_code.to_sym
+      if locales.include?(locale_code)
+        @@locales[locale_code][:locale_name] || nil
+      end
     end
 
     protected
+    # Return the list of UI files used by Globalite
     def ui_localization_files
       loc_files = Dir[File.join(RAILS_ROOT, 'lang/ui/', '*.{yml,yaml}')]
       unless @@localization_sources.empty?
@@ -218,12 +254,13 @@ module Globalite
       end
       loc_files
     end
-    
-    # Rails localization files, doesn't support locales, only 1 file per language
+
+    # Return a list of the Rails localization files
     def rails_localization_files
       loc_files = Dir[File.join( RAILS_ROOT, '/vendor/plugins/globalite/lang/rails/', '*.{yml,yaml}')]
     end
 
+    # Interpolate a string using the passed arguments
     def interpolate_string(string, args={})
       if args.length > 0
         args.each do |arg|
@@ -232,6 +269,6 @@ module Globalite
       end
       string
     end
-    
+
   end
 end

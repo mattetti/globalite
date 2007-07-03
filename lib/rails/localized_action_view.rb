@@ -38,17 +38,11 @@ module ActionView
     end
 
     module NumberHelper
-      alias_method :orig_number_to_currency, :number_to_currency
       
       # modify number_to_currency to accept :order option
       def number_to_currency(number, options = {})
         # Blend default options with localized currency options
-        #if :number_helper_unit.l != :missing_freaking_key.l
         options.reverse_merge!({:unit => :number_helper_unit.l, :separator => :number_helper_separator.l, :delimiter => :number_helper_delimiter.l, :order => :number_helper_order.l})
-        # else
-        #          options.reverse_merge!({:unit => "$", :separator => ".", :delimiter => ",", :order => [:unit, :number]})
-        #        end
-        #        options[:order] ||= [:unit, :number]
         options = options.stringify_keys
         
         precision, unit, separator, delimiter = options.delete("precision") { 2 }, options.delete("unit") { "$" }, options.delete("separator") { "." }, options.delete("delimiter") { "," }

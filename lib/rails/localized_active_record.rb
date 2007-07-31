@@ -1,5 +1,6 @@
 module ActiveRecord
   class Errors
+    
     # Error messages modified in lang file
     @@default_error_messages.update({
               :inclusion           => :error_message_inclusion.l,
@@ -33,5 +34,12 @@ module ActiveRecord
                 :not_a_number        => :error_message_not_a_number.l,
               })
     end
+    
+    # Handle model error localization (contributed by Guillaume Belleguic)
+    def add(attribute, msg = @@default_error_messages[:invalid])
+          @errors[attribute.l] = [] if @errors[attribute.to_s].nil?
+          @errors[attribute.l] << msg
+    end
+    
   end
 end

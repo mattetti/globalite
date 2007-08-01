@@ -1,19 +1,19 @@
-# Translation by Frédéric Cavazza ( www.fredcavazza.net ) and Matt Aimonetti ( railsontherun.com )
+# Translation by Frédéric Cavazza ( www.fredcavazza.net ) Alexandre Bournier ( www.physalis-creation.com ) and Matt Aimonetti ( railsontherun.com )
 
 locale_name: Français (France)
 # ActiveRecord::Errors.default_error_messages
-error_message_inclusion: n'est pas inclut dans la liste
-error_message_exclusion: est réservé
-error_message_invalid: est invalide
-error_message_confirmation: ne correspond pas à la confirmation
-error_message_accepted: doit être accepté
-error_message_empty: ne peut pas être vide
-error_message_blank: ne peut pas être vierge
-error_message_too_long: est trop long (%d caractères maximum)
-error_message_too_short: est trop court(%d caractères minimum)
-error_message_wrong_length: n'est pas de la bonne longueur (devrait être de %d caractères)
-error_message_taken: est déjà prit
-error_message_not_a_number: n'est pas un nombre
+error_message_inclusion: n'est pas inclus dans la liste.
+error_message_exclusion: est réservé.
+error_message_invalid: est invalide.
+error_message_confirmation: ne correspond pas à la confirmation.
+error_message_accepted: doit être accepté.
+error_message_empty: ne peut être vide.
+error_message_blank: ne peut être vide.
+error_message_too_long: est trop long (max. %d caractère(s)).
+error_message_too_short: est trop court (min. %d caractère(s)).
+error_message_wrong_length: a une longueur incorrecte (doit être de %d caractère(s)).
+error_message_taken: est déjà utilisé.
+error_message_not_a_number: n'est pas une valeur numérique.
 
 # used by ActionView::Helpers::DateHelper.distance_of_time_in_words
 date_helper_less_than_x_seconds: moins de %d secondes

@@ -1,2 +1,5 @@
+REVISONS 56 - August 05 2007
+ * Improved localize_with_args  [jiman.ryu]
+
 REVISION 54 - July 31 2007
  * Added model error localization [ Guillaume Belleguic ]

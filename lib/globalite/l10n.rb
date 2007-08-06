@@ -264,7 +264,7 @@ module Globalite
     def interpolate_string(string, args={})
       if args.length > 0
         args.each do |arg|
-          string = string.gsub("{#{arg[0].to_s}}", arg[1])
+          string = string.gsub("{#{arg[0].to_s}}", arg[1].to_s)
         end
       end
       string

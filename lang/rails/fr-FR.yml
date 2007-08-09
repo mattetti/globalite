@@ -21,8 +21,8 @@ date_helper_half_a_minute: une demi-minute
 date_helper_less_than_a_minute: moins d'une minute
 date_helper_one_minute: 1 minute
 date_helper_x_minutes: %d minutes
-date_helper_one_hour: à peu près 1 heure
-date_helper_x_hours: à peu près %d heures
+date_helper_one_hour: environ 1 heure
+date_helper_x_hours: environ %d heures
 date_helper_one_day: 1 jour
 date_helper_x_days: %d jours
 date_helper_one_month: 1 mois
@@ -50,7 +50,7 @@ date_helper_pm: pm
 # used by ActionView::Helpers::NumberHelper.number_to_currency
 number_helper_unit: "€"
 number_helper_separator: "," #unit separator (between integer part and fraction part)
-number_helper_delimiter: "." #delimiter between each group of thousands. Example: 1.234.567 
+number_helper_delimiter: "" #delimiter between each group of thousands. Example: 1.234.567 
 number_helper_order: [number, unit] #order is at present unsupported in Rails
 #to support for instance French format, the order is different: Unit comes last (ex. "1.234,00 €")
 

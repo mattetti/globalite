@@ -1,19 +1,17 @@
-# German translation by Ralph von Der Heyden
-
 locale_name: Deutsch (Deutschland)
 # ActiveRecord::Errors.default_error_messages
-error_message_inclusion: ist nicht in der Liste enthalten
-error_message_exclusion: darf nicht gewählt werden
-error_message_invalid: ist ungültig
-error_message_confirmation: entspricht nicht der Bestätigung
-error_message_accepted: muss akzeptiert werden
-error_message_empty: darf nicht leer sein
-error_message_blank: muss ausgefüllt werden
-error_message_too_long: ist zu lang (höchstens %d Zeichen)
-error_message_too_short: ist zu kurz (mindestens is %d Zeichen)
-error_message_wrong_length: hat nicht die richtige Länge (%d Zeichen)
-error_message_taken: ist schon belegt
-error_message_not_a_number: ist keine Zahl
+error_message_inclusion: ist nicht in Liste gültiger Optionen enthalten.
+error_message_exclusion: ist reserviert.
+error_message_invalid: ist ungültig.
+error_message_confirmation: entspricht nicht der Bestätigung.
+error_message_accepted: muss akzeptiert werden.
+error_message_empty: darf nicht leer sein.
+error_message_blank: muss ausgefüllt werden.
+error_message_too_long: ist zu lang (höchstens %d Zeichen).
+error_message_too_short: ist zu kurz (mindestens is %d Zeichen).
+error_message_wrong_length: hat die falsche Länge (%d Zeichen).
+error_message_taken: ist bereits vergeben.
+error_message_not_a_number: ist keine Zahl.
 
 # used by ActionView::Helpers::DateHelper.distance_of_time_in_words
 date_helper_less_than_x_seconds: weniger als %d Sekunden
@@ -34,7 +32,7 @@ date_helper_x_years: %d Jahre
 date_helper_order: [:day, :month, :year] #default Rails is US ordered: :order => [:year, :month, :day]
 
 date_helper_date_formats: # DON'T  TRANSLATE, RE ORDER
-  default: "%d. %m. %Y"
+  default: "%d.%m.%Y"
   short: "%e. %b"
   long: "%e. %B %Y"
 
@@ -110,94 +108,94 @@ date_helper_abbr_day_names:
 
 countries_list:
   - Afghanistan
-  - Albania
-  - Algeria
-  - American Samoa
+  - Albanien
+  - Algerien
+  - Amerikanisch-Samoa
   - Andorra
   - Angola
   - Anguilla
-  - Antarctica
-  - Antigua And Barbuda
-  - Argentina
-  - Armenia
+  - Antarktis
+  - Antigua und Barbuda
+  - Argentinien
+  - Armenien
   - Aruba
-  - Australia
-  - Austria
-  - Azerbaijan
+  - Australien
+  - Österreich
+  - Aserbaidschan
   - Bahamas
   - Bahrain
-  - Bangladesh
+  - Bangladesch
   - Barbados
-  - Belarus 
-  - Belgium
+  - Belarus
+  - Belgien
   - Belize
   - Benin
   - Bermuda
   - Bhutan
-  - Bolivia
-  - Bosnia and Herzegowina
-  - Botswana
-  - Bouvet Island
-  - Brazil
-  - British Indian Ocean Territory 
-  - Brunei Darussalam
-  - Bulgaria
+  - Bolivien
+  - Bosnien und Herzegowina
+  - Botsuana
+  - Bouvetinsel
+  - Brasilien
+  - Britisches Territorium im Indischen Ozean
+  - Brunei
+  - Bulgarien
   - Burkina Faso
-  - Burma
+  - Myanmar
   - Burundi
-  - Cambodia
-  - Cameroon
-  - Canada
-  - Cape Verde
-  - Cayman Islands
-  - Central African Republic
-  - Chad
+  - Kambodscha
+  - Kamerun
+  - Kanada
+  - Kap Verde
+  - Kaimaninseln
+  - Zentralafrikanische Republik
+  - Tschad
   - Chile
   - China
-  - Christmas Island
-  - Cocos (Keeling) Islands
-  - Colombia
-  - Comoros
-  - Congo
-  - Congo, the Democratic Republic of the
-  - Cook Islands
+  - Weihnachtsinsel
+  - Kokosinseln
+  - Kolumbien
+  - Komoren
+  - Kongo
+  - Demokratische Republik Kongo
+  - Cookinseln
   - Costa Rica
-  - Cote d'Ivoire
-  - Croatia
-  - Cuba
-  - Cyprus
-  - Czech Republic
-  - Denmark
-  - Djibouti
+  - Elfenbeinküste
+  - Kroatien
+  - Kuba
+  - Zypern
+  - Tschechische Republik
+  - Dänemark
+  - Dschibuti
   - Dominica
-  - Dominican Republic
-  - East Timor
+  - Dominikanische Republik
+  - Osttimor
   - Ecuador
-  - Egypt
+  - Ägypten
   - El Salvador
   - England
-  - Equatorial Guinea
+  - Äquatorialguinea
   - Eritrea
-  - Espana
-  - Estonia
-  - Ethiopia
-  - Falkland Islands
-  - Faroe Islands
-  - Fiji
-  - Finland
-  - France
-  - French Guiana
-  - French Polynesia
-  - French Southern Territories
-  - Gabon
-  - Gambia 
-  - Georgia
-  - Germany
+  - Spanien
+  - Estland
+  - Äthiopien
+  - Falklandinseln
+  - Färöer
+  - Fidschi
+  - Finnland
+  - Frankreich
+  - Französisch-Guayana
+  - Französisch-Polynesien
+  - Französische Gebiete im südlichen Indischen Ozean
+  - Gabun
+  - Gambia
+  - Georgien
+  - Deutschland
   - Ghana
   - Gibraltar
-  - Great Britain
-  - Greece
-  - Greenland
+  - Großbritannien
+  - Griechenland
+  - Grönland
   - Grenada
   - Guadeloupe
   - Guam
@@ -206,150 +204,150 @@ countries_list:
   - Guinea-Bissau
   - Guyana
   - Haiti
-  - Heard and Mc Donald Islands
+  - Heard und McDonaldinseln
   - Honduras
-  - Hong Kong
-  - Hungary
-  - Iceland 
-  - India
-  - Indonesia
-  - Ireland
+  - Hongkong
+  - Ungarn
+  - Island
+  - Indien
+  - Indonesien
+  - Irland
   - Israel
-  - Italy
+  - Italien
   - Iran
-  - Iraq
-  - Jamaica
+  - Irak
+  - Jamaika
   - Japan
-  - Jordan
-  - Kazakhstan
-  - Kenya
+  - Jordanien
+  - Kasachstan
+  - Kenia
   - Kiribati
-  - Korea, Republic of
-  - Korea (South)
+  - Nordkorea
+  - Südkorea
   - Kuwait
-  - Kyrgyzstan
-  - Lao People's Democratic Republic
-  - Latvia
-  - Lebanon
+  - Kirgisistan
+  - Laos
+  - Lettland
+  - Libanon
   - Lesotho
   - Liberia
   - Liechtenstein
-  - Lithuania
-  - Luxembourg
+  - Litauen
+  - Luxemburg
   - Macau
-  - Macedonia
-  - Madagascar
+  - Mazedonien
+  - Madagaskar
   - Malawi
   - Malaysia
-  - Maldives
+  - Malediven
   - Mali
   - Malta
-  - Marshall Islands
+  - Marshallinseln
   - Martinique
-  - Mauritania
+  - Mauretanien
   - Mauritius
   - Mayotte
-  - Mexico
-  - Micronesia, Federated States of
-  - Moldova, Republic of
+  - Mexiko
+  - Mikronesien
+  - Moldawien
   - Monaco
-  - Mongolia
+  - Mongolei
   - Montserrat
-  - Morocco
-  - Mozambique
+  - Marokko
+  - Mosambik
   - Myanmar
   - Namibia
   - Nauru
   - Nepal
-  - Netherlands
-  - Netherlands Antilles
-  - New Caledonia
-  - New Zealand
+  - Niederlande
+  - Niederländische Antillen
+  - Neukaledonien
+  - Neuseeland
   - Nicaragua
   - Niger
   - Nigeria
   - Niue
-  - Norfolk Island
-  - Northern Ireland
-  - Northern Mariana Islands
-  - Norway
+  - Norfolkinsel
+  - Nordirland
+  - Nördliche Marianen
+  - Norwegen
   - Oman
   - Pakistan
   - Palau
   - Panama
-  - Papua New Guinea
+  - Papua-Neuguinea
   - Paraguay
   - Peru
-  - Philippines
-  - Pitcairn
-  - Poland
+  - Philippinen
+  - Pitcairninseln
+  - Polen
   - Portugal
   - Puerto Rico
-  - Qatar
-  - Reunion
-  - Romania
-  - Russia
-  - Rwanda
-  - Saint Kitts and Nevis
-  - Saint Lucia
-  - Saint Vincent and the Grenadines
-  - Samoa (Independent)
+  - Katar
+  - Réunion
+  - Rumänien
+  - Russische Föderation
+  - Ruanda
+  - St. Kitts und Nevis
+  - St. Lucia
+  - St. Vincent und die Grenadinen
+  - Samoa
   - San Marino
-  - Sao Tome and Principe
-  - Saudi Arabia
-  - Scotland
+  - São Tomé und Príncipe
+  - Saudi-Arabien
+  - Schottland
   - Senegal
-  - Serbia and Montenegro
-  - Seychelles
+  - Serbien und Montenegro
+  - Seychellen
   - Sierra Leone
-  - Singapore
-  - Slovakia
-  - Slovenia
-  - Solomon Islands
+  - Singapur
+  - Slowakei
+  - Slowenien
+  - Salomonen
   - Somalia
-  - South Africa
-  - South Georgia and the South Sandwich Islands
-  - South Korea
-  - Spain
+  - Südafrika
+  - Südgeorgien und Südliche Sandwichinseln
+  - Republik Korea
+  - Spanien
   - Sri Lanka
   - St. Helena
-  - St. Pierre and Miquelon
+  - St.-Pierre und Miquelon
   - Suriname
-  - Svalbard and Jan Mayen Islands
-  - Swaziland
-  - Sweden
-  - Switzerland
+  - Svalbard und Jan Mayen
+  - Swasiland
+  - Schweden
+  - Schweiz
   - Taiwan
-  - Tajikistan
-  - Tanzania
+  - Tadschikistan
+  - Tansania
   - Thailand
   - Togo
   - Tokelau
   - Tonga
   - Trinidad
-  - Trinidad and Tobago
-  - Tunisia
-  - Turkey
+  - Trinidad und Tobago
+  - Tunesien
+  - Türkei
   - Turkmenistan
-  - Turks and Caicos Islands
+  - Turks- und Caicosinseln
   - Tuvalu
   - Uganda
   - Ukraine
-  - United Arab Emirates
-  - United Kingdom
-  - United States
-  - United States Minor Outlying Islands
+  - Vereinigte Arabische Emirate
+  - Vereinigtes Königreich
+  - Vereinigte Staaten
+  - Kleinere amerikanische Überseeinseln
   - Uruguay
-  - Uzbekistan
+  - Usbekistan
   - Vanuatu
-  - Vatican City State (Holy See)
+  - Vatikanstadt
   - Venezuela
-  - Viet Nam
-  - Virgin Islands (British)
-  - Virgin Islands (U.S.)
+  - Vietnam
+  - Britische Jungferninseln
+  - Amerikanische Jungferninseln
   - Wales
-  - Wallis and Futuna Islands
-  - Western Sahara
-  - Yemen
-  - Zambia
-  - Zimbabwe
+  - Wallis und Futuna
+  - Westsahara
+  - Jemen
+  - Sambia
+  - Simbabwe

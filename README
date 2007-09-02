@@ -38,12 +38,14 @@ or from your vendor/plugins folder:
 
 Create a lang folder at the root of your project. Add your localization files in the lang/ui folder if you want to localize your interface. 
 
-Declare the current locale or language > 
+Declare the current locale or language in your environment.rb > 
 	Globalite.language = :fr
-Localize a key > 
+	
+Localize a key in your view > 
 	:localization_key.l 
 or 
 	:localization_key.localize
+
 
 Easy, isn't?
 
@@ -55,7 +57,21 @@ You can also pass an optional localization string only used if the localization 
 You can also pass values to the localization, and the translator can do whatever he wants with them:	
 	:welcome_user.l_with_args({:user => @user.name}) would render "Welcome Matt!"
 Note that variables can be used in any order the translator wants	
+
 	
+You can also use pluralization right in your translations:
+  geese_amount:  we have #{pluralize({geese_count}, goose, geese)} in the farm!
+  
+In your view do the following:
+  :geese_amount.l_with_args({:geese_count => @geese.count})
+  
+Note that the pluralization form of your string is optional, you could use a translation like that too:
+  cow_amount:  we have #{pluralize({count}, cow)} in the farm!
+
+By pushing the pluralization to the translator, I  believe we offer more flexibility so the translation can be smoother.
+This solution was inspired by a discussion with Ivan:
+"It's very difficult to just translate "prohibited this" and "from being saved" to Chinese, cause the resulting sentence will look like a machine translated one without making much sense. Not to mention Chinese handles pluralization differently, we pretty much don't have it. For example, we'll use the same word for "person" and "people", no difference. So to me, it makes sense just to replace the whole thing with one simple header message that says "Invalid attributes!" in Chinese."
+
 
 ===Rails Localization:
 
@@ -88,20 +104,18 @@ Get a distance of time in words localized.
 
 Active record errors are automatically rendered in the locale language
 
-
 ====Notes
 
-Check on the tests in the spec folder for more examples.
+Check on the tests in the spec folder for more examples. There's also a demo app available: http://globalite.googlecode.com/svn/sample/ui/
 
 ==FAQ:
 
 ===Why did you call your plugin 'Globalite'? 
 
-Globalize was already taken ;) Most seriously, I was looking for a i18n/l10n solution for a project I was working on, after few hours testing Globalize, Josh http://joshknowles.com, Matt http://heidmotron.com/ and I http://railsontherun.com saw it wouldn't work for us. Since we only had the choice between very simple solutions and a complicated solution, I decided to make a "lite" version of Globalize ;)
+Globalize was already taken ;) More seriously, I was looking for a i18n/l10n solution for a project I was working on, after few hours testing Globalize, Josh http://joshknowles.com, Matt http://heidmotron.com/ and I http://railsontherun.com saw it wouldn't work for us. Since we only had the choice between very simple solutions and a complicated solution, I decided to make a "lite" version of Globalize ;)
 
 ==TODO:
 
-- add support for pluralization
 - Model i18n/l10n
 
 
@@ -134,6 +148,7 @@ Matt Aimonetti  http://railsontherun.com  mattaimonetti AT gmail DOT com
 
 ===Contributors:
 
+Ivan Chang yuanhueichang AT gmail_DOT_com ( Chinese translation, help on the ActiveRecord msg error i18n/l10n)
 Ralph von Der Heyden ralph AT rvdh_DOT_de (German translation)
 jiman.ryu AT gmail http://jasonpa.tistory.com/ (bug fix)
 Guillaume Belleguic guillaume.belleguic AT oceans DOT eu (Model error handling)
@@ -147,3 +162,5 @@ your name here if you submit a patch :)
 http://code.google.com/p/globalite/
 
 http://railsontherun.com/globalite
+
+Sample app: http://globalite.googlecode.com/svn/sample/ui/

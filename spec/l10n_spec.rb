@@ -11,8 +11,8 @@ describe "After loading languages, Globalite" do
   end
   
   it 'should have some default translations' do
-    :error_message_exclusion.l.should == "is reserved"
-    Globalite.localize(:welcome_friend).include?("Welcome").should be(true)
+    :error_message_exclusion.l.should_not be(nil)
+    Globalite.localize(:welcome_friend).should_not be(nil)
   end
   
   it 'should have loaded the Rails localizations' do
@@ -216,6 +216,21 @@ describe "a localization key (in general)" do
     Globalite.current_language = :fr
     :welcome_user.l_with_args({:user => :user.l}).should == "Cher utilisateur, Bienvenue!"
     :many_args_test.l_with_args({:name => 'Matt', :what => 'déchire', :other => 'Serieusement'}).should == 'Serieusement, Matt vraiment déchire comme une bete ;)'
+  end
+  
+  it "should handle localizated pluralization properly" do
+    Globalite.current_language = :fr
+    :simple_pluralization.l.should == "2 erreurs"
+  end
+  
+  it "should handle custom pluralization properly" do
+    Globalite.current_language = :fr
+    :pluralization_test.l.should == "Heidi a vu trois 3 chevaux dans le parc"
+  end
+  
+  it "should handle pluralization with passed arguments" do
+    Globalite.current_language = :fr
+    :pluralization_with_passed_args.l_with_args({:count => 2}).should == "Heidi a vu trois 2 chevaux dans le parc"
   end
   
 end

@@ -35,10 +35,10 @@ module ActiveRecord
               })
     end
     
-    # Handle model error localization (contributed by Guillaume Belleguic)
+    # # Handle model error localization
     # def add(attribute, msg = @@default_error_messages[:invalid])
-    #       @errors[attribute.l] = [] if @errors[attribute.to_s].nil?
-    #       @errors[attribute.l] << msg
+    #        @errors[attribute.l] = [] if @errors[attribute.to_s].nil?
+    #        @errors[attribute.l] << msg
     # end
     
   end

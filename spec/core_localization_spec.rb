@@ -23,7 +23,7 @@ describe "when Rails is loaded" do
     Globalite.locale.should == :"fr-FR"
     Globalite.localizations.keys.should include(:error_message_inclusion)
     Globalite.localizations[:error_message_inclusion].should_not be(nil)
-    :error_message_inclusion.l.should == "n'est pas inclut dans la liste"
+    :error_message_inclusion.l.should == "n'est pas inclus dans la liste."
   end
   
   it "ActiveRecord error messages should be localized in English" do
@@ -38,7 +38,7 @@ describe "when Rails is loaded" do
     distance_of_time_in_words(Time.mktime(2004, 3, 7, 1, 20), from).should == "about 4 hours"
     Globalite.language = :fr
     distance_of_time_in_words(from, Time.mktime(2004, 3, 6, 21, 41, 25)).should == "moins d'une minute"
-    distance_of_time_in_words(Time.mktime(2004, 3, 7, 1, 20), from).should == "à peu près 4 heures"
+    distance_of_time_in_words(Time.mktime(2004, 3, 7, 1, 20), from).should == "environ 4 heures"
   end
   
   it "currency should be localized" do
@@ -91,7 +91,7 @@ describe "when Rails is loaded" do
     t.l(:long).should == '25 Décembre, 2006 13:55'
     t.l(:short).should == '25 Déc, 13:55'
     # custom format
-    t.l('%a, %A, %d %b %B %Y %H:%M:%S %p %z').should == 'Lun, Lundi, 25 Déc Décembre 2006 13:55:00 pm -0800'
+    t.l('%a, %A, %d %b %B %Y %H:%M:%S %p').should == "Lun, Lundi, 25 Déc Décembre 2006 13:55:00 pm"
   end
   
   it 'date should be localized' do

@@ -1,4 +1,4 @@
-locale_name: English (UK)
+locale_name: English (USA)
 # ActiveRecord::Errors.default_error_messages
 error_message_inclusion: is not included in the list
 error_message_exclusion: is reserved
@@ -55,6 +55,10 @@ number_helper_order: [ unit, number ]
 # use by +Array#to_sentence()+
 array_connector: 'and'
 array_skip_last_comma: 'false'
+
+# Active Record error messages:
+active_record_helper_error_description: 'There were problems with the following fields:'
+active_record_helper_header_message: #{pluralize({error_count}, 'error')} prohibited this {failed_object} from being saved
 
 date_helper_month_names:
  -              # Leave that line

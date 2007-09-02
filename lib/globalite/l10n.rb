@@ -1,6 +1,7 @@
 module Globalite 
 
   module L10n
+    
     @@default_language = :en
     attr_reader :default_language
 
@@ -152,11 +153,19 @@ module Globalite
         end
       end  
       localized = interpolate_string(localized.dup, args.dup) if localized.class == String && localized != error_msg
+      
+      # let's handle pluralization if needed
+      # the translation must include pluralize{count, singular string} to be translated
+      # the translator can also pass the plural form if needed:
+      #    pluralize{3, goose, geese}
+      localized = localized.gsub( /pluralize\{(.*)\}/){ |erb| pluralize(Regexp.last_match(1)) } if localized.is_a?(String) && (localized=~ /pluralize\{(.*)\}/)
+      
       # Set the locale back to normal
       #
       unless locale.nil?
         Locale.code = @original_locale
       end
+            
       return localized
     end
     alias :loc :localize
@@ -171,6 +180,23 @@ module Globalite
     end
     alias :add_reserved_keys :add_reserved_key
 
+    # modified version of the Rails pluralize method from ActionView::Helpers::TextHelper module
+    # TODO: load custom inflector based on the language one uses.
+    def pluralize(l_string) #count, singular, plural = nil)
+      # map the arguments like in the original pluralize method
+      count, singular, plural = l_string.split(',').map{ |arg| arg.strip}
+      
+       "#{count} " + if count == 1 || count == '1'
+        singular
+      elsif plural
+        plural
+      elsif Object.const_defined?("Inflector")
+        Inflector.pluralize(singular)
+      else
+        singular + "s"
+      end
+    end
+    
     def reset_l10n_data
       @@languages = []
       @@countries = []

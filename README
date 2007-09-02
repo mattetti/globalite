@@ -60,13 +60,13 @@ Note that variables can be used in any order the translator wants
 
 	
 You can also use pluralization right in your translations:
-  geese_amount:  we have #{pluralize({geese_count}, goose, geese)} in the farm!
+  geese_amount:  we have pluralize{{geese_count}, goose, geese} in the farm!
   
 In your view do the following:
   :geese_amount.l_with_args({:geese_count => @geese.count})
   
 Note that the pluralization form of your string is optional, you could use a translation like that too:
-  cow_amount:  we have #{pluralize({count}, cow)} in the farm!
+  cow_amount:  we have pluralize{{count}, cow} in the farm!
 
 By pushing the pluralization to the translator, I  believe we offer more flexibility so the translation can be smoother.
 This solution was inspired by a discussion with Ivan:

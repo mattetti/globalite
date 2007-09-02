@@ -58,9 +58,9 @@ number_helper_order: [number, unit] #order is at present unsupported in Rails
 array_connector: 'et'
 array_skip_last_comma: 'false'
 
-# used by ActionView::Helpers::ActiveRecordHelper.error_messages_for (ActiveRecord errors)
+# Active Record error messages:
+active_record_helper_error_description: 'il y a eu un problème avec les champs suivant:'
 active_record_helper_header_message: pluralize{{error_count}, erreur} pendant l'enregistrement de '{failed_object}'
-active_record_helper_error_description: il y a eu un problème avec les champs suivant:
 
 date_helper_month_names:
  -              # Leave that line

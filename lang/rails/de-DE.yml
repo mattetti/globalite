@@ -58,7 +58,7 @@ array_skip_last_comma: 'false'
 
 # Active Record error messages:
 active_record_helper_error_description: 'Es gab Probleme mit den folgenden Feldern:'
-active_record_helper_header_message: Durch pluralize{{error_count}, 'Fehler'} konnte {failed_object} nicht gespeichert werden.
+active_record_helper_header_message: Durch pluralize{{error_count}, Fehler} konnte {failed_object} nicht gespeichert werden.
 
 date_helper_month_names:
  -              # Leave that line

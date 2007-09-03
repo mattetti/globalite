@@ -58,7 +58,7 @@ array_skip_last_comma: 'false'
 
 # Active Record error messages:
 active_record_helper_error_description: 'There were problems with the following fields:'
-active_record_helper_header_message: #{pluralize({error_count}, 'error')} prohibited this {failed_object} from being saved
+active_record_helper_header_message: pluralize{{error_count}, 'error'} prohibited this {failed_object} from being saved
 
 date_helper_month_names:
  -              # Leave that line

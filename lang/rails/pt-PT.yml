@@ -58,6 +58,9 @@ number_helper_order: [ unit, number ]
 array_connector: 'e'
 array_skip_last_comma: 'true'
 
+active_record_helper_error_description: 'Foram detectados os seguintes erros:'
+active_record_helper_header_message: #{pluralize({error_count}, 'erro')} impediram esse {failed_object} de ser salvo
+
 date_helper_month_names:
  -              # Leave that line
    -            # Leave that line

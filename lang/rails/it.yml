@@ -57,6 +57,9 @@ number_helper_order: [number, unit] #order is at present unsupported in Rails
 array_connector: 'e'
 array_skip_last_comma: 'false'
 
+active_record_helper_header_message: pluralize{{error_count}, errore, errori} durante il salvataggio di {failed_object}
+active_record_helper_error_description: 'Si sono verificati dei problemi con i seguenti campi:'
+
 date_helper_month_names:
  -              # Leave that line
    -            # Leave that line

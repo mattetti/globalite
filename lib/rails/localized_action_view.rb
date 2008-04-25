@@ -187,6 +187,7 @@ module ActionView
           message = :active_record_helper_error_description.l('There were problems with the following fields:')
                             
           # Fix for :header_message and :message values if present
+          # It works just like regular rails functionality
           options[:header_message] = header_message unless options.include?(:header_message)
           options[:message] =  message unless options.include?(:message)
           error_messages = objects.map {|object| object.errors.full_messages.map {|msg| content_tag(:li, msg) } }

@@ -160,11 +160,15 @@ module ActionView
       
     end #module FormOptionsHelper
 
-		module ActiveRecordHelper
-			def error_messages_for(*params)
-        options = params.last.is_a?(Hash) ? params.pop.symbolize_keys : {}
-        objects = params.collect {|object_name| instance_variable_get("@#{object_name}") }.compact
-				count   = objects.inject(0) {|sum, object| sum + object.errors.count }
+    module ActiveRecordHelper
+      def error_messages_for(*params)
+        options = params.extract_options!.symbolize_keys
+        if object = options.delete(:object)
+          objects = [object].flatten
+        else
+          objects = params.collect {|object_name| instance_variable_get("@#{object_name}") }.compact
+        end
+        count   = objects.inject(0) {|sum, object| sum + object.errors.count }
         unless count.zero?
           html = {}
           [:id, :class].each do |key|
@@ -175,21 +179,30 @@ module ActionView
               html[key] = 'errorExplanation'
             end
           end
-          original_header_message = "#{pluralize(count, 'error')} prohibited this #{(options[:object_name] || params.first).to_s.gsub('_', ' ')} from being saved"
-					header_message = :active_record_helper_header_message.l_with_args({:error_count => count, :failed_object => (options[:object_name] || params.first).to_s.gsub('_', ' ') }, original_header_message)
-					error_messages = objects.map {|object| object.errors.full_messages.map {|msg| content_tag(:li, msg) } }
-          content_tag(:div,
-            content_tag(options[:header_tag] || :h2, header_message) <<
-							# content_tag(:p, 'There were problems with the following fields:') <<
-							content_tag(:p, :active_record_helper_error_description.l('There were problems with the following fields:')) <<
-              content_tag(:ul, error_messages),
-            html
-          )
+                            
+          options[:object_name] ||= params.first
+          
+          original_header_message = "#{pluralize(count, 'error')} prohibited this #{options[:object_name].to_s.gsub('_', ' ')} from being saved"
+          header_message = :active_record_helper_header_message.l_with_args({:error_count => count, :failed_object => (options[:object_name] || params.first).to_s.gsub('_', ' ') }, original_header_message)
+          message = :active_record_helper_error_description.l('There were problems with the following fields:')
+                            
+          # Fix for :header_message and :message values if present
+          # It works just like regular rails functionality
+          options[:header_message] = header_message unless options.include?(:header_message)
+          options[:message] =  message unless options.include?(:message)
+          error_messages = objects.map {|object| object.errors.full_messages.map {|msg| content_tag(:li, msg) } }
+
+          contents = ''
+          contents << content_tag(options[:header_tag] || :h2, options[:header_message]) unless options[:header_message].blank?
+          contents << content_tag(:p, options[:message]) unless options[:message].blank?
+          contents << content_tag(:ul, error_messages)
+
+          content_tag(:div, contents, html)
         else
           ''
         end
       end
-		end #module ActiveRecordHelper
+    end #module ActiveRecordHelper
 
-	end #module Helpers
+  end #module Helpers
 end #module ActionView

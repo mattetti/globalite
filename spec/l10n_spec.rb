@@ -124,7 +124,7 @@ describe "After loading languages, Globalite" do
     Globalite.current_locale = :"fr-*"
     Globalite.current_language = :en
     Globalite.current_language.should == :en 
-    Globalite.localizations.should_not be {}
+    Globalite.localizations.should_not be_empty
   end
 
   it "should return an array of the languages it loaded" do

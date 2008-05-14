@@ -33,12 +33,12 @@ describe "when Rails is loaded" do
   end
   
   it "distance_of_time_in_words should be localized properly" do
-    from = Time.mktime(2004, 3, 6, 21, 41, 18)
-    distance_of_time_in_words(from, Time.mktime(2004, 3, 6, 21, 41, 25)).should == "less than a minute"
-    distance_of_time_in_words(Time.mktime(2004, 3, 7, 1, 20), from).should == "about 4 hours"
+    from = Time.mktime(2004, 3, 6, 21, 41, 18).utc
+    distance_of_time_in_words(from, Time.mktime(2004, 3, 6, 21, 41, 25).utc).should == "less than a minute"
+    distance_of_time_in_words(Time.mktime(2004, 3, 7, 1, 20).utc, from).should == "about 4 hours"
     Globalite.language = :fr
-    distance_of_time_in_words(from, Time.mktime(2004, 3, 6, 21, 41, 25)).should == "moins d'une minute"
-    distance_of_time_in_words(Time.mktime(2004, 3, 7, 1, 20), from).should == "environ 4 heures"
+    distance_of_time_in_words(from, Time.mktime(2004, 3, 6, 21, 41, 25).utc).should == "moins d'une minute"
+    distance_of_time_in_words(Time.mktime(2004, 3, 7, 1, 20).utc, from).should == "environ 4 heures"
   end
   
   it "currency should be localized" do
@@ -55,12 +55,12 @@ describe "when Rails is loaded" do
   end
   
   it "date_select should be localized" do
-    select_day(Time.mktime(2003, 8, 16)).should == %Q(<select id=\"date_day\" name=\"date[day]\">\n<option value=\"1\">1</option>\n<option value=\"2\">2</option>\n<option value=\"3\">3</option>\n<option value=\"4\">4</option>\n<option value=\"5\">5</option>\n<option value=\"6\">6</option>\n<option value=\"7\">7</option>\n<option value=\"8\">8</option>\n<option value=\"9\">9</option>\n<option value=\"10\">10</option>\n<option value=\"11\">11</option>\n<option value=\"12\">12</option>\n<option value=\"13\">13</option>\n<option value=\"14\">14</option>\n<option value=\"15\">15</option>\n<option value=\"16\" selected=\"selected\">16</option>\n<option value=\"17\">17</option>\n<option value=\"18\">18</option>\n<option value=\"19\">19</option>\n<option value=\"20\">20</option>\n<option value=\"21\">21</option>\n<option value=\"22\">22</option>\n<option value=\"23\">23</option>\n<option value=\"24\">24</option>\n<option value=\"25\">25</option>\n<option value=\"26\">26</option>\n<option value=\"27\">27</option>\n<option value=\"28\">28</option>\n<option value=\"29\">29</option>\n<option value=\"30\">30</option>\n<option value=\"31\">31</option>\n</select>\n)
+    select_day(Time.mktime(2003, 8, 16).utc).should == %Q(<select id=\"date_day\" name=\"date[day]\">\n<option value=\"1\">1</option>\n<option value=\"2\">2</option>\n<option value=\"3\">3</option>\n<option value=\"4\">4</option>\n<option value=\"5\">5</option>\n<option value=\"6\">6</option>\n<option value=\"7\">7</option>\n<option value=\"8\">8</option>\n<option value=\"9\">9</option>\n<option value=\"10\">10</option>\n<option value=\"11\">11</option>\n<option value=\"12\">12</option>\n<option value=\"13\">13</option>\n<option value=\"14\">14</option>\n<option value=\"15\">15</option>\n<option value=\"16\" selected=\"selected\">16</option>\n<option value=\"17\">17</option>\n<option value=\"18\">18</option>\n<option value=\"19\">19</option>\n<option value=\"20\">20</option>\n<option value=\"21\">21</option>\n<option value=\"22\">22</option>\n<option value=\"23\">23</option>\n<option value=\"24\">24</option>\n<option value=\"25\">25</option>\n<option value=\"26\">26</option>\n<option value=\"27\">27</option>\n<option value=\"28\">28</option>\n<option value=\"29\">29</option>\n<option value=\"30\">30</option>\n<option value=\"31\">31</option>\n</select>\n)
     
-    select_day(Time.mktime(2003, 8, 16), :include_blank => true).should == %Q(<select id="date_day" name="date[day]">\n<option value=""></option>\n<option value="1">1</option>\n<option value="2">2</option>\n<option value="3">3</option>\n<option value="4">4</option>\n<option value="5">5</option>\n<option value="6">6</option>\n<option value="7">7</option>\n<option value="8">8</option>\n<option value="9">9</option>\n<option value="10">10</option>\n<option value="11">11</option>\n<option value="12">12</option>\n<option value="13">13</option>\n<option value="14">14</option>\n<option value="15">15</option>\n<option value="16" selected="selected">16</option>\n<option value="17">17</option>\n<option value="18">18</option>\n<option value="19">19</option>\n<option value="20">20</option>\n<option value="21">21</option>\n<option value="22">22</option>\n<option value="23">23</option>\n<option value="24">24</option>\n<option value="25">25</option>\n<option value="26">26</option>\n<option value="27">27</option>\n<option value="28">28</option>\n<option value="29">29</option>\n<option value="30">30</option>\n<option value="31">31</option>\n</select>\n)
+    select_day(Time.mktime(2003, 8, 16).utc, :include_blank => true).should == %Q(<select id="date_day" name="date[day]">\n<option value=""></option>\n<option value="1">1</option>\n<option value="2">2</option>\n<option value="3">3</option>\n<option value="4">4</option>\n<option value="5">5</option>\n<option value="6">6</option>\n<option value="7">7</option>\n<option value="8">8</option>\n<option value="9">9</option>\n<option value="10">10</option>\n<option value="11">11</option>\n<option value="12">12</option>\n<option value="13">13</option>\n<option value="14">14</option>\n<option value="15">15</option>\n<option value="16" selected="selected">16</option>\n<option value="17">17</option>\n<option value="18">18</option>\n<option value="19">19</option>\n<option value="20">20</option>\n<option value="21">21</option>\n<option value="22">22</option>\n<option value="23">23</option>\n<option value="24">24</option>\n<option value="25">25</option>\n<option value="26">26</option>\n<option value="27">27</option>\n<option value="28">28</option>\n<option value="29">29</option>\n<option value="30">30</option>\n<option value="31">31</option>\n</select>\n)
     select_day(16, :include_blank => true).should == %Q(<select id="date_day" name="date[day]">\n<option value=""></option>\n<option value="1">1</option>\n<option value="2">2</option>\n<option value="3">3</option>\n<option value="4">4</option>\n<option value="5">5</option>\n<option value="6">6</option>\n<option value="7">7</option>\n<option value="8">8</option>\n<option value="9">9</option>\n<option value="10">10</option>\n<option value="11">11</option>\n<option value="12">12</option>\n<option value="13">13</option>\n<option value="14">14</option>\n<option value="15">15</option>\n<option value="16" selected="selected">16</option>\n<option value="17">17</option>\n<option value="18">18</option>\n<option value="19">19</option>\n<option value="20">20</option>\n<option value="21">21</option>\n<option value="22">22</option>\n<option value="23">23</option>\n<option value="24">24</option>\n<option value="25">25</option>\n<option value="26">26</option>\n<option value="27">27</option>\n<option value="28">28</option>\n<option value="29">29</option>\n<option value="30">30</option>\n<option value="31">31</option>\n</select>\n)
     Globalite.current_language = :fr
-    select_day(Time.mktime(2003, 8, 16)).should == %Q(<select id=\"date_day\" name=\"date[day]\">\n<option value=\"1\">1</option>\n<option value=\"2\">2</option>\n<option value=\"3\">3</option>\n<option value=\"4\">4</option>\n<option value=\"5\">5</option>\n<option value=\"6\">6</option>\n<option value=\"7\">7</option>\n<option value=\"8\">8</option>\n<option value=\"9\">9</option>\n<option value=\"10\">10</option>\n<option value=\"11\">11</option>\n<option value=\"12\">12</option>\n<option value=\"13\">13</option>\n<option value=\"14\">14</option>\n<option value=\"15\">15</option>\n<option value=\"16\" selected=\"selected\">16</option>\n<option value=\"17\">17</option>\n<option value=\"18\">18</option>\n<option value=\"19\">19</option>\n<option value=\"20\">20</option>\n<option value=\"21\">21</option>\n<option value=\"22\">22</option>\n<option value=\"23\">23</option>\n<option value=\"24\">24</option>\n<option value=\"25\">25</option>\n<option value=\"26\">26</option>\n<option value=\"27\">27</option>\n<option value=\"28\">28</option>\n<option value=\"29\">29</option>\n<option value=\"30\">30</option>\n<option value=\"31\">31</option>\n</select>\n)
+    select_day(Time.mktime(2003, 8, 16).utc).should == %Q(<select id=\"date_day\" name=\"date[day]\">\n<option value=\"1\">1</option>\n<option value=\"2\">2</option>\n<option value=\"3\">3</option>\n<option value=\"4\">4</option>\n<option value=\"5\">5</option>\n<option value=\"6\">6</option>\n<option value=\"7\">7</option>\n<option value=\"8\">8</option>\n<option value=\"9\">9</option>\n<option value=\"10\">10</option>\n<option value=\"11\">11</option>\n<option value=\"12\">12</option>\n<option value=\"13\">13</option>\n<option value=\"14\">14</option>\n<option value=\"15\">15</option>\n<option value=\"16\" selected=\"selected\">16</option>\n<option value=\"17\">17</option>\n<option value=\"18\">18</option>\n<option value=\"19\">19</option>\n<option value=\"20\">20</option>\n<option value=\"21\">21</option>\n<option value=\"22\">22</option>\n<option value=\"23\">23</option>\n<option value=\"24\">24</option>\n<option value=\"25\">25</option>\n<option value=\"26\">26</option>\n<option value=\"27\">27</option>\n<option value=\"28\">28</option>\n<option value=\"29\">29</option>\n<option value=\"30\">30</option>\n<option value=\"31\">31</option>\n</select>\n)
     
   end
   
@@ -71,9 +71,9 @@ describe "when Rails is loaded" do
   end
   
   it "the months names and their abbreviations should be localized" do
-    select_month(Time.mktime(2003, 8, 16)).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">January</option>\n<option value=\"2\">February</option>\n<option value=\"3\">March</option>\n<option value=\"4\">April</option>\n<option value=\"5\">May</option>\n<option value=\"6\">June</option>\n<option value=\"7\">July</option>\n<option value=\"8\" selected=\"selected\">August</option>\n<option value=\"9\">September</option>\n<option value=\"10\">October</option>\n<option value=\"11\">November</option>\n<option value=\"12\">December</option>\n</select>\n)
+    select_month(Time.mktime(2003, 8, 16).utc).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">January</option>\n<option value=\"2\">February</option>\n<option value=\"3\">March</option>\n<option value=\"4\">April</option>\n<option value=\"5\">May</option>\n<option value=\"6\">June</option>\n<option value=\"7\">July</option>\n<option value=\"8\" selected=\"selected\">August</option>\n<option value=\"9\">September</option>\n<option value=\"10\">October</option>\n<option value=\"11\">November</option>\n<option value=\"12\">December</option>\n</select>\n)
     Globalite.language = :fr
-    select_month(Time.mktime(2003, 8, 16)).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">Janvier</option>\n<option value=\"2\">Février</option>\n<option value=\"3\">Mars</option>\n<option value=\"4\">Avril</option>\n<option value=\"5\">Mai</option>\n<option value=\"6\">Juin</option>\n<option value=\"7\">Juillet</option>\n<option value=\"8\" selected=\"selected\">Août</option>\n<option value=\"9\">Septembre</option>\n<option value=\"10\">Octobre</option>\n<option value=\"11\">Novembre</option>\n<option value=\"12\">Décembre</option>\n</select>\n)
+    select_month(Time.mktime(2003, 8, 16).utc).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">Janvier</option>\n<option value=\"2\">Février</option>\n<option value=\"3\">Mars</option>\n<option value=\"4\">Avril</option>\n<option value=\"5\">Mai</option>\n<option value=\"6\">Juin</option>\n<option value=\"7\">Juillet</option>\n<option value=\"8\" selected=\"selected\">Août</option>\n<option value=\"9\">Septembre</option>\n<option value=\"10\">Octobre</option>\n<option value=\"11\">Novembre</option>\n<option value=\"12\">Décembre</option>\n</select>\n)
   end
   
   it "the country list should be localized" do
@@ -85,7 +85,7 @@ describe "when Rails is loaded" do
   end
   
   it 'time should be localized' do
-    t = Time.parse('2006-12-25 13:55')
+    t = Time.parse('2006-12-25 13:55').utc
     t.to_formatted_s(:long).should == 'December 25, 2006 13:55'
     Globalite.language = :fr
     t.l(:long).should == '25 Décembre, 2006 13:55'
@@ -95,7 +95,7 @@ describe "when Rails is loaded" do
   end
   
   it 'date should be localized' do
-    d = Date.new(2007,05,13)
+    d = Date.new(2007,05,13).utc
     d.l.should == '2007-05-13'
     Globalite.current_language = :fr
     d.l(:short).should == '13 Mai'

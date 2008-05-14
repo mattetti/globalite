@@ -104,6 +104,26 @@ Get a distance of time in words localized.
 
 Active record errors are automatically rendered in the locale language
 
+==Localize field names in validator messages
+
+By default, here is the normal validation behavior:
+
+Name cannot be empty (en)
+Name nie może być puste (pl)
+
+However, Name should be replaced with 'Nazwa' in polish.
+
+Consider the following example:
+
+validates_presence_of :name, :email, :age
+
+GlobaLite will try to use your yml language files entries using the following localization keys: name:, email:, age:.
+If the plugin can't find any localizations, the original field name will be used.
+You can get rid of field name in custom validation message with :message attribute.
+
+validates_uniqueness_of :name, :message => 'my message'
+
+
 ====Notes
 
 Check on the tests in the spec folder for more examples. There's also a demo app available: http://globalite.googlecode.com/svn/sample/ui/

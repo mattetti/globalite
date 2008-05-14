@@ -1,3 +1,4 @@
+* added support for Hungarian [MrPrise]
 REVISON 70 - Sept 2 2007
  * Added support for Chinese (Taiwan, Hong Kong and Main Land China) [Ivan Chang ]
  * Added support for pluralization, use pluralize{count, singular, optional_plural_form} in your translation file

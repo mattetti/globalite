@@ -77,7 +77,7 @@ describe "when Rails is loaded" do
     end
     
     it "should support the :use_hidden option" do
-      select_month(Time.mktime(2003, 8, 16), :use_hidden => true).should == %Q(<input type=\"hidden\" id=\"date_month\" name=\"date[month]\" value=\"8\" />\n)  
+      select_month(Time.mktime(2003, 8, 16), :use_hidden => true).should == %Q(<input id=\"date_month\" name=\"date[month]\" type=\"hidden\" value=\"8\" />\n)  
     end
   end
   

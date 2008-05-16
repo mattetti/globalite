@@ -109,7 +109,7 @@ module ActionView
         end
         val = date ? (date.kind_of?(Fixnum) ? date : date.month) : ''
         if options[:use_hidden]
-          hidden_html(options[:field_name] || 'month', val, options)
+          @selector = hidden_html(options[:field_name] || 'month', val, options)
         else
           month_options = []
           monthnames = :date_helper_month_names.l

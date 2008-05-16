@@ -69,10 +69,16 @@ describe "when Rails is loaded" do
     select_datetime(nil, :prefix => "date[first]").should include('Janvier')
   end
   
-  it "the months names and their abbreviations should be localized" do
-    select_month(Time.parse("Sat Aug 16 07:00:00 UTC 2003")).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">January</option>\n<option value=\"2\">February</option>\n<option value=\"3\">March</option>\n<option value=\"4\">April</option>\n<option value=\"5\">May</option>\n<option value=\"6\">June</option>\n<option value=\"7\">July</option>\n<option value=\"8\" selected=\"selected\">August</option>\n<option value=\"9\">September</option>\n<option value=\"10\">October</option>\n<option value=\"11\">November</option>\n<option value=\"12\">December</option>\n</select>\n)
-    Globalite.language = :fr
-    select_month(Time.parse("Sat Aug 16 07:00:00 UTC 2003")).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">Janvier</option>\n<option value=\"2\">Février</option>\n<option value=\"3\">Mars</option>\n<option value=\"4\">Avril</option>\n<option value=\"5\">Mai</option>\n<option value=\"6\">Juin</option>\n<option value=\"7\">Juillet</option>\n<option value=\"8\" selected=\"selected\">Août</option>\n<option value=\"9\">Septembre</option>\n<option value=\"10\">Octobre</option>\n<option value=\"11\">Novembre</option>\n<option value=\"12\">Décembre</option>\n</select>\n)
+  describe '#select_month' do
+    it "should localize the month's names and their abbreviations" do
+      select_month(Time.mktime(2003, 8, 16)).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">January</option>\n<option value=\"2\">February</option>\n<option value=\"3\">March</option>\n<option value=\"4\">April</option>\n<option value=\"5\">May</option>\n<option value=\"6\">June</option>\n<option value=\"7\">July</option>\n<option value=\"8\" selected=\"selected\">August</option>\n<option value=\"9\">September</option>\n<option value=\"10\">October</option>\n<option value=\"11\">November</option>\n<option value=\"12\">December</option>\n</select>\n)
+      Globalite.language = :fr
+      select_month(Time.mktime(2003, 8, 16)).should == %Q(<select id=\"date_month\" name=\"date[month]\">\n<option value=\"1\">Janvier</option>\n<option value=\"2\">Février</option>\n<option value=\"3\">Mars</option>\n<option value=\"4\">Avril</option>\n<option value=\"5\">Mai</option>\n<option value=\"6\">Juin</option>\n<option value=\"7\">Juillet</option>\n<option value=\"8\" selected=\"selected\">Août</option>\n<option value=\"9\">Septembre</option>\n<option value=\"10\">Octobre</option>\n<option value=\"11\">Novembre</option>\n<option value=\"12\">Décembre</option>\n</select>\n)
+    end
+    
+    it "should support the :use_hidden option" do
+      select_month(Time.mktime(2003, 8, 16), :use_hidden => true).should == %Q(<input type=\"hidden\" id=\"date_month\" name=\"date[month]\" value=\"8\" />\n)  
+    end
   end
   
   it "the country list should be localized" do

@@ -1,20 +1,20 @@
-locale_name: EspaÒol (Argentina)
+locale_name: Espa√±ol (Argentina)
 # Spanish translation file.
 # Translation by Mariano Ayesa (www.bluebrains.com.ar)
 
 # ActiveRecord::Errors.default_error_messages
-error_message_inclusion: no est· incluido en la lista
-error_message_exclusion: est· reservado
-error_message_invalid: no es v·lido
-error_message_confirmation: no coincide con la confirmaciÛn
+error_message_inclusion: no est√° incluido en la lista
+error_message_exclusion: est√° reservado
+error_message_invalid: no es v√°lido
+error_message_confirmation: no coincide con la confirmaci√≥n
 error_message_accepted: debe ser aceptado
-error_message_empty: no puede estar vacÌo
+error_message_empty: no puede estar vac√≠o
 error_message_blank: no puede quedar en blanco
-error_message_too_long: es demasiado largo (el m·ximo es %d caracteres)
-error_message_too_short: es demasiado corto (el mÌnimo es %d caracteres)
-error_message_wrong_length: no posee el largo correcto (deberÌa ser de %d caracteres)
-error_message_taken: ya est· siendo utilizado
-error_message_not_a_number: no es un n˙mero
+error_message_too_long: es demasiado largo (el m√°ximo es %d caracteres)
+error_message_too_short: es demasiado corto (el m√≠nimo es %d caracteres)
+error_message_wrong_length: no posee el largo correcto (deber√≠a ser de %d caracteres)
+error_message_taken: ya est√° siendo utilizado
+error_message_not_a_number: no es un n√∫mero
 
 # used by ActionView::Helpers::DateHelper.distance_of_time_in_words
 date_helper_less_than_x_seconds: menos de %d segundos
@@ -24,12 +24,12 @@ date_helper_one_minute: 1 minuto
 date_helper_x_minutes: %d minutos
 date_helper_one_hour: sobre una hora
 date_helper_x_hours: sobre %d horas
-date_helper_one_day: un dÌa
-date_helper_x_days: %d dÌas
+date_helper_one_day: un d√≠a
+date_helper_x_days: %d d√≠as
 date_helper_one_month: 1 mes
 date_helper_x_months: %d meses
-date_helper_one_year: 1 aÒo
-date_helper_x_years: %d aÒos
+date_helper_one_year: 1 a√±o
+date_helper_x_years: %d a√±os
 
 # DON'T TRANSLATE, just order
 date_helper_order: [:day, :month, :year] #default Rails is US ordered: :order => [:year, :month, :day]
@@ -53,7 +53,7 @@ number_helper_unit: "$"
 number_helper_separator: "," #unit separator (between integer part and fraction part)
 number_helper_delimiter: "." #delimiter between each group of thousands. Example: 1.234.567
 number_helper_order: [number, unit] #order is at present unsupported in Rails
-#to support for instance French format, the order is different: Unit comes last (ex. "1.234,00 Ä")
+#to support for instance French format, the order is different: Unit comes last (ex. "1.234,00 ‚Ç¨")
 
 # use by +Array#to_sentence()+
 array_connector: 'y'
@@ -95,23 +95,23 @@ date_helper_day_names:
 - Domingo
 - Lunes
 - Martes
-- MiÈrcoles
+- Mi√©rcoles
 - Jueves
 - Viernes
-- S·bado
+- S√°bado
 
 date_helper_abbr_day_names:
 - Dom
 - Lun
 - Mar
-- MiÈ
+- Mi√©
 - Jue
 - Vie
-- S·b
+- S√°b
 
 # STILL NEEDS TRANSLATIONS
 countries_list:
-- Afganist·n
+- Afganist√°n
 - Albania
 - Algeria
 - Samoa
@@ -142,14 +142,14 @@ countries_list:
 - Isla Bouvet
 - Brasil
 - British Indian Ocean Territory
-- Sultanato Brunei 
+- Sultanato Brunei
 - Bulgaria
 - Burkina Faso
 - Burma
 - Burundi
 - Camboya
 - Camerun
-- Canad·
+- Canad√°
 - Cabo Verde
 - Islas Caiman
 - Central African Republic
@@ -180,7 +180,7 @@ countries_list:
 - Inglaterra
 - Guinea Ecuatorial
 - Eritrea
-- EspaÒa
+- Espa√±a
 - Estonia
 - Etiopia
 - Islas Malvinas
@@ -197,7 +197,7 @@ countries_list:
 - Alemania
 - Ghana
 - Gibraltar
-- Gran BretaÒa
+- Gran Breta√±a
 - Grecia
 - Greenland
 - Granada
@@ -223,10 +223,10 @@ countries_list:
 - Jamaica
 - Japon
 - Jordania
-- Kazajist·n
+- Kazajist√°n
 - Kenia
 - Kiribati
-- Corea (Rep˙blica)
+- Corea (Rep√∫blica)
 - Corea (del Sur)
 - Kuwait
 - Kyrgyzstan
@@ -254,7 +254,7 @@ countries_list:
 - Mejico
 - Micronesia, Federated States of
 - Moldova, Republic of
-- MÛnaco
+- M√≥naco
 - Mongolia
 - Montserrat
 - Marruecos
@@ -268,7 +268,7 @@ countries_list:
 - Nueva Caledonia
 - Nueva Zelanda
 - Nicaragua
-- NÌger
+- N√≠ger
 - Nigeria
 - Niue
 - Norfolk Island
@@ -278,10 +278,10 @@ countries_list:
 - Oman
 - Pakistan
 - Palau
-- Panam·
-- Pap˙a Nueva Guinea
+- Panam√°
+- Pap√∫a Nueva Guinea
 - Paraguay
-- Per˙
+- Per√∫
 - Philippines
 - Pitcairn
 - Poland
@@ -345,7 +345,7 @@ countries_list:
 - Vaticano
 - Venezuela
 - Vietnam
-- Islas Virgenes (Brit·nicas)
+- Islas Virgenes (Brit√°nicas)
 - Islas Virgenes (EE.UU.)
 - Gales
 - Wallis and Futuna Islands

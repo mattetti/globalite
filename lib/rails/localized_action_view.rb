@@ -181,11 +181,14 @@ module ActionView
           end
                             
           options[:object_name] ||= params.first
+
+          original_failed_object = options[:object_name].to_s.gsub('_', ' ')
+          failed_object = options[:object_name].l(original_failed_object)
           
-          original_header_message = "#{pluralize(count, 'error')} prohibited this #{options[:object_name].to_s.gsub('_', ' ')} from being saved"
-          header_message = :active_record_helper_header_message.l_with_args({:error_count => count, :failed_object => (options[:object_name] || params.first).to_s.gsub('_', ' ') }, original_header_message)
+          original_header_message = "#{pluralize(count, 'error')} prohibited this #{original_failed_object} from being saved"
+          header_message = :active_record_helper_header_message.l_with_args({:error_count => count, :failed_object => failed_object }, original_header_message)
           message = :active_record_helper_error_description.l('There were problems with the following fields:')
-                            
+                           
           # Fix for :header_message and :message values if present
           # It works just like regular rails functionality
           options[:header_message] = header_message unless options.include?(:header_message)

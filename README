@@ -123,7 +123,7 @@ Globalite will also try to replace model name from validation messages with loca
 8 errors prohibited this user from being saved
                          ^^^^
 
-will be localized and 'user' will be replaced if 'user' key exist in yml language file.
+will be localized and 'user' will be replaced if 'user' key exists in yml language file.
 
 If the plugin can't find any localizations, the original field name will be used.
 You can get rid of field name in custom validation message with :message attribute.

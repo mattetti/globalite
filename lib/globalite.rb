@@ -24,3 +24,5 @@ module Kernel
     raise ArgumentError.new("invalid value for Boolean: \"#{string}\"")
   end
 end
+
+Globalite.load_localization!

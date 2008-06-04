@@ -34,15 +34,17 @@ date_helper_x_years: %d años
 # DON'T TRANSLATE, just order
 date_helper_order: [:day, :month, :year] #default Rails is US ordered: :order => [:year, :month, :day]
 
-date_helper_date_formats: # DON'T TRANSLATE, RE ORDER
-default: "%Y-%m-%d"
-short: "%e %b"
-long: "%e %B, %Y"
+# DON'T TRANSLATE, RE ORDERED
+date_helper_date_formats:
+  default: "%Y-%m-%d"
+  short: "%e %b"
+  long: "%e %B, %Y"
 
-date_helper_time_formats: # DON'T TRANSLATE, RE ORDER
-default: "%a, %d %b %Y %H:%M:%S %z"
-short: "%d %b, %H:%M"
-long: "%d %B, %Y %H:%M"
+# DON'T TRANSLATE, RE ORDERED
+date_helper_time_formats:
+  default: "%a, %d %b %Y %H:%M:%S %z"
+  short: "%d %b, %H:%M"
+  long: "%d %B, %Y %H:%M"
 
 # added at the end of date if your date system doesn't use a 24 hours system
 date_helper_am: am
@@ -60,296 +62,296 @@ array_connector: 'y'
 array_skip_last_comma: 'true'
 
 date_helper_month_names:
-- # Leave that line
-- # Leave that line
-- Enero
-- Febrero
-- Marzo
-- Abril
-- Mayo
-- Junio
-- Julio
-- Agosto
-- Septiembre
-- Octubre
-- Noviembre
-- Diciembre
+  - # Leave that line
+  - # Leave that line
+  - Enero
+  - Febrero
+  - Marzo
+  - Abril
+  - Mayo
+  - Junio
+  - Julio
+  - Agosto
+  - Septiembre
+  - Octubre
+  - Noviembre
+  - Diciembre
 
 date_helper_abbr_month_names:
-- # Leave that line
-- # Leave that line
-- Ene
-- Feb
-- Mar
-- Abr
-- May
-- Jun
-- Jul
-- Ago
-- Sep
-- Oct
-- Nov
-- Dic
+  - # Leave that line
+  - # Leave that line
+  - Ene
+  - Feb
+  - Mar
+  - Abr
+  - May
+  - Jun
+  - Jul
+  - Ago
+  - Sep
+  - Oct
+  - Nov
+  - Dic
 
 date_helper_day_names:
-- Domingo
-- Lunes
-- Martes
-- Miércoles
-- Jueves
-- Viernes
-- Sábado
+  - Domingo
+  - Lunes
+  - Martes
+  - Miércoles
+  - Jueves
+  - Viernes
+  - Sábado
 
 date_helper_abbr_day_names:
-- Dom
-- Lun
-- Mar
-- Mié
-- Jue
-- Vie
-- Sáb
+  - Dom
+  - Lun
+  - Mar
+  - Mié
+  - Jue
+  - Vie
+  - Sáb
 
 # STILL NEEDS TRANSLATIONS
 countries_list:
-- Afganistán
-- Albania
-- Algeria
-- Samoa
-- Andorra
-- Angola
-- Anguilla
-- Antartda
-- Antigua And Barbuda
-- Argentina
-- Armenia
-- Aruba
-- Australia
-- Austria
-- Azerbaijan
-- Bahamas
-- Bahrain
-- Bangladesh
-- Barbados
-- Bierlorrusia
-- Belgica
-- Belice
-- Benin
-- Bermuda
-- Bhutan
-- Bolivia
-- Bosnia Herzegovina
-- Botswana
-- Isla Bouvet
-- Brasil
-- British Indian Ocean Territory
-- Sultanato Brunei
-- Bulgaria
-- Burkina Faso
-- Burma
-- Burundi
-- Camboya
-- Camerun
-- Canadá
-- Cabo Verde
-- Islas Caiman
-- Central African Republic
-- Chad
-- Chile
-- China
-- Isla de Pascua
-- Isla Cocos
-- Colombia
-- Comoros
-- Congo
-- Congo
-- Islas Cook
-- Costa Rica
-- Cote d'Ivoire
-- Croacia
-- Cuba
-- Chipre
-- Republica Checha
-- Dinamarca
-- Djibouti
-- Dominica
-- Republica Dominicana
-- East Timor
-- Ecuador
-- Egipto
-- El Salvador
-- Inglaterra
-- Guinea Ecuatorial
-- Eritrea
-- España
-- Estonia
-- Etiopia
-- Islas Malvinas
-- Islas Faroe
-- Fiji
-- Finlandia
-- Francia
-- Guinea Francesa
-- Polinesia Francesa
-- French Southern Territories
-- Gabon
-- Gambia
-- Georgia
-- Alemania
-- Ghana
-- Gibraltar
-- Gran Bretaña
-- Grecia
-- Greenland
-- Granada
-- Guadalupe
-- Guam
-- Guatemala
-- Guinea
-- Guinea-Bissau
-- Guyana
-- Haiti
-- Heard and Mc Donald Islands
-- Honduras
-- Hong Kong
-- Hungria
-- Islandia
-- India
-- Indonesia
-- Irlanda
-- Israel
-- Italia
-- Iran
-- Irak
-- Jamaica
-- Japon
-- Jordania
-- Kazajistán
-- Kenia
-- Kiribati
-- Corea (República)
-- Corea (del Sur)
-- Kuwait
-- Kyrgyzstan
-- Lao
-- Latvia
-- Libano
-- Lesotho
-- Liberia
-- Liechtenstein
-- Lituania
-- Luxemburgo
-- Macau
-- Macedonia
-- Madagascar
-- Malawi
-- Malasia
-- Islas Maldivas
-- Mali
-- Malta
-- Islas Marshall
-- Martinica
-- Mauritania
-- Mauritius
-- Mayotte
-- Mejico
-- Micronesia, Federated States of
-- Moldova, Republic of
-- Mónaco
-- Mongolia
-- Montserrat
-- Marruecos
-- Mozambique
-- Myanmar
-- Namibia
-- Nauru
-- Nepal
-- Holanda
-- Antillas Holandesas
-- Nueva Caledonia
-- Nueva Zelanda
-- Nicaragua
-- Níger
-- Nigeria
-- Niue
-- Norfolk Island
-- Irlanda del Norte
-- Islas Mariana del Norte
-- Noruega
-- Oman
-- Pakistan
-- Palau
-- Panamá
-- Papúa Nueva Guinea
-- Paraguay
-- Perú
-- Philippines
-- Pitcairn
-- Poland
-- Portugal
-- Puerto Rico
-- Qatar
-- Reunion
-- Romania
-- Russia
-- Rwanda
-- Saint Kitts and Nevis
-- Saint Lucia
-- Saint Vincent and the Grenadines
-- Samoa (Independent)
-- San Marino
-- Sao Tome and Principe
-- Saudi Arabia
-- Scotland
-- Senegal
-- Serbia and Montenegro
-- Seychelles
-- Sierra Leone
-- Singapore
-- Slovakia
-- Slovenia
-- Solomon Islands
-- Somalia
-- Sudafrica
-- Islas Sandwich y Georgias del Sur
-- Sri Lanka
-- Santa Helena
-- San Pierre y Miquelon
-- Suriname
-- Svalbard and Jan Mayen Islands
-- Swaziland
-- Suecia
-- Suiza
-- Taiwan
-- Tajikistan
-- Tanzania
-- Tailandia
-- Togo
-- Tokelau
-- Tonga
-- Trinidad
-- Trinidad y Tobago
-- Tunez
-- Turquia
-- Turkmenistan
-- Islas Caicos
-- Tuvalu
-- Uganda
-- Ucrania
-- Emiratos Arabes Unidos
-- Reino Unido
-- Estados Unidos
-- United States Minor Outlying Islands
-- Uruguay
-- Uzbekistan
-- Vanuatu
-- Vaticano
-- Venezuela
-- Vietnam
-- Islas Virgenes (Británicas)
-- Islas Virgenes (EE.UU.)
-- Gales
-- Wallis and Futuna Islands
-- Sahara
-- Yemen
-- Zambia
-- Zimbabwe
+  - Afganistán
+  - Albania
+  - Algeria
+  - Samoa
+  - Andorra
+  - Angola
+  - Anguilla
+  - Antartda
+  - Antigua And Barbuda
+  - Argentina
+  - Armenia
+  - Aruba
+  - Australia
+  - Austria
+  - Azerbaijan
+  - Bahamas
+  - Bahrain
+  - Bangladesh
+  - Barbados
+  - Bierlorrusia
+  - Belgica
+  - Belice
+  - Benin
+  - Bermuda
+  - Bhutan
+  - Bolivia
+  - Bosnia Herzegovina
+  - Botswana
+  - Isla Bouvet
+  - Brasil
+  - British Indian Ocean Territory
+  - Sultanato Brunei
+  - Bulgaria
+  - Burkina Faso
+  - Burma
+  - Burundi
+  - Camboya
+  - Camerun
+  - Canadá
+  - Cabo Verde
+  - Islas Caiman
+  - Central African Republic
+  - Chad
+  - Chile
+  - China
+  - Isla de Pascua
+  - Isla Cocos
+  - Colombia
+  - Comoros
+  - Congo
+  - Congo
+  - Islas Cook
+  - Costa Rica
+  - Cote d'Ivoire
+  - Croacia
+  - Cuba
+  - Chipre
+  - Republica Checha
+  - Dinamarca
+  - Djibouti
+  - Dominica
+  - Republica Dominicana
+  - East Timor
+  - Ecuador
+  - Egipto
+  - El Salvador
+  - Inglaterra
+  - Guinea Ecuatorial
+  - Eritrea
+  - España
+  - Estonia
+  - Etiopia
+  - Islas Malvinas
+  - Islas Faroe
+  - Fiji
+  - Finlandia
+  - Francia
+  - Guinea Francesa
+  - Polinesia Francesa
+  - French Southern Territories
+  - Gabon
+  - Gambia
+  - Georgia
+  - Alemania
+  - Ghana
+  - Gibraltar
+  - Gran Bretaña
+  - Grecia
+  - Greenland
+  - Granada
+  - Guadalupe
+  - Guam
+  - Guatemala
+  - Guinea
+  - Guinea-Bissau
+  - Guyana
+  - Haiti
+  - Heard and Mc Donald Islands
+  - Honduras
+  - Hong Kong
+  - Hungria
+  - Islandia
+  - India
+  - Indonesia
+  - Irlanda
+  - Israel
+  - Italia
+  - Iran
+  - Irak
+  - Jamaica
+  - Japon
+  - Jordania
+  - Kazajistán
+  - Kenia
+  - Kiribati
+  - Corea (República)
+  - Corea (del Sur)
+  - Kuwait
+  - Kyrgyzstan
+  - Lao
+  - Latvia
+  - Libano
+  - Lesotho
+  - Liberia
+  - Liechtenstein
+  - Lituania
+  - Luxemburgo
+  - Macau
+  - Macedonia
+  - Madagascar
+  - Malawi
+  - Malasia
+  - Islas Maldivas
+  - Mali
+  - Malta
+  - Islas Marshall
+  - Martinica
+  - Mauritania
+  - Mauritius
+  - Mayotte
+  - Mejico
+  - Micronesia, Federated States of
+  - Moldova, Republic of
+  - Mónaco
+  - Mongolia
+  - Montserrat
+  - Marruecos
+  - Mozambique
+  - Myanmar
+  - Namibia
+  - Nauru
+  - Nepal
+  - Holanda
+  - Antillas Holandesas
+  - Nueva Caledonia
+  - Nueva Zelanda
+  - Nicaragua
+  - Níger
+  - Nigeria
+  - Niue
+  - Norfolk Island
+  - Irlanda del Norte
+  - Islas Mariana del Norte
+  - Noruega
+  - Oman
+  - Pakistan
+  - Palau
+  - Panamá
+  - Papúa Nueva Guinea
+  - Paraguay
+  - Perú
+  - Philippines
+  - Pitcairn
+  - Poland
+  - Portugal
+  - Puerto Rico
+  - Qatar
+  - Reunion
+  - Romania
+  - Russia
+  - Rwanda
+  - Saint Kitts and Nevis
+  - Saint Lucia
+  - Saint Vincent and the Grenadines
+  - Samoa (Independent)
+  - San Marino
+  - Sao Tome and Principe
+  - Saudi Arabia
+  - Scotland
+  - Senegal
+  - Serbia and Montenegro
+  - Seychelles
+  - Sierra Leone
+  - Singapore
+  - Slovakia
+  - Slovenia
+  - Solomon Islands
+  - Somalia
+  - Sudafrica
+  - Islas Sandwich y Georgias del Sur
+  - Sri Lanka
+  - Santa Helena
+  - San Pierre y Miquelon
+  - Suriname
+  - Svalbard and Jan Mayen Islands
+  - Swaziland
+  - Suecia
+  - Suiza
+  - Taiwan
+  - Tajikistan
+  - Tanzania
+  - Tailandia
+  - Togo
+  - Tokelau
+  - Tonga
+  - Trinidad
+  - Trinidad y Tobago
+  - Tunez
+  - Turquia
+  - Turkmenistan
+  - Islas Caicos
+  - Tuvalu
+  - Uganda
+  - Ucrania
+  - Emiratos Arabes Unidos
+  - Reino Unido
+  - Estados Unidos
+  - United States Minor Outlying Islands
+  - Uruguay
+  - Uzbekistan
+  - Vanuatu
+  - Vaticano
+  - Venezuela
+  - Vietnam
+  - Islas Virgenes (Británicas)
+  - Islas Virgenes (EE.UU.)
+  - Gales
+  - Wallis and Futuna Islands
+  - Sahara
+  - Yemen
+  - Zambia
+  - Zimbabwe

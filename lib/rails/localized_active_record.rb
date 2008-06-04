@@ -62,7 +62,7 @@ module ActiveRecord
           elsif msg =~ /^\^/
             full_messages << msg[1..-1]
           else
-            full_messages << attr.intern.l(attr) + " " + msg
+            full_messages << attr.intern.l(attr).humanize + " " + msg
           end
         end
       end

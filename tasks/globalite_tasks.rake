@@ -1,6 +1,16 @@
 namespace :globalite do
   namespace :localization do
 
+    # Returns a hash of localizations in org_base.yml
+    def load_localizations(org_base="en-US")
+      @localizations = {}
+      filename = RAILS_ROOT + "/lang/ui/#{org_base}.yml"
+      File.open(filename) do |file|
+        @localizations = YAML.load(file)
+      end if File.exists?(filename)
+      @localizations
+    end
+    
     # Returns a hash with the missing localizations compared to the original locale 
     def missing_localizations(org_base='en-US')
       @langs = {}
@@ -43,5 +53,28 @@ namespace :globalite do
       end  
     end
 
+    desc "Create and/or append all non-translated symbols from views , helpers & controllers to the org_base file"
+    task :localize => :environment do
+      @org_base     = ENV['BASE_LOCALE'] || 'en-US'
+      @localizations = load_localizations(@org_base)
+      @new_localizations = {} # we don't want to keep unused keys
+      @files = Dir[File.join( RAILS_ROOT, '/app/**/*')]
+      @files.each do |file|
+        File.open(file) do |res|
+          res.each do |line|
+            line.scan(/:([\w\d_]*)\.l(?:ocalize|_with_args)?(?:\s*\(?\s*["']([^"']*)["']\s*\))?/) do |key, value|
+              if @localizations.has_key?(key) 
+                @new_localizations[key] = @localizations[key] # we keep the old localizations
+              else
+                @new_localizations[key] = value
+              end
+            end
+          end
+        end if File.file?(file)
+      end
+      File.open(RAILS_ROOT + "/lang/ui/#{@org_base}.yml", "w+") do |l_file|
+        YAML.dump(@new_localizations, l_file)
+      end
+    end
   end
 end

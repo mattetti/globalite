@@ -29,10 +29,9 @@ Also, Globalite doesn't have the concept of a base language. Mainly because I th
 
 ===installation:
 
-	script/plugin install http://globalite.googlecode.com/svn/trunk/
-rename the vendor/plugins/trunk => vendor/plugins/globalite
-or from your vendor/plugins folder:
-	svn checkout http://globalite.googlecode.com/svn/trunk/ globalite
+	script/plugin install git://github.com/mattetti/globalite.git
+	
+(or as a gem from github)
 
 ===UI Localization:
 
@@ -133,7 +132,7 @@ validates_uniqueness_of :name, :message => '^my message'
 
 ====Notes
 
-Check on the tests in the spec folder for more examples. There's also a demo app available: http://globalite.googlecode.com/svn/sample/ui/
+Check on the tests in the spec folder for more examples. There's also a demo app available: http://github.com/mattetti/globalite-example
 
 ==FAQ:
 
@@ -193,8 +192,8 @@ your name here if you submit a patch :)
 
 ===More info:
 
-http://code.google.com/p/globalite/
+http://github.com/mattetti/globalite
 
 http://railsontherun.com/globalite
 
-Sample app: http://globalite.googlecode.com/svn/sample/ui/
+Sample app: http://github.com/mattetti/globalite-example

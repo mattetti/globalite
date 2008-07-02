@@ -15,7 +15,9 @@ error_message_too_short: çok kısa (en az %d karakter olabilir)
 error_message_wrong_length: yanlış uzunlukta (tam %d karakter olmalı)
 error_message_taken: daha önce alınmış
 error_message_not_a_number: bir sayı değil
- 
+# ActionController::Base.resources_path_names
+resources_path_new: yeni
+resources_path_edit: duzenle
 # used by ActionView::Helpers::DateHelper.distance_of_time_in_words
 date_helper_less_than_x_seconds: %d saniyeden az
 date_helper_half_a_minute: yarım dakika

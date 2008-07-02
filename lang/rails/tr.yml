@@ -63,7 +63,7 @@ array_skip_last_comma: 'false'
  
 # Active Record error messages:
 active_record_helper_error_description: 'Aşağıdaki alanlarla ilgili sorunlar oluştu:'
-active_record_helper_header_message: "{error_count} hata bulundu"
+active_record_helper_header_message: "{error_count} hata yüzünden {failed_object} kaydedilemedi"
  
 date_helper_month_names:
  - # Leave that line

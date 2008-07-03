@@ -1,6 +1,6 @@
 # Turkish language file for Globalite
+# Original file by İlke Akdeniz
 # Revised and improved by Mert Torun mert@merttorun.com
-# original author unknown
 locale_name: Türkçe
 # ActiveRecord::Errors.default_error_messages
 error_message_inclusion: listeye dahil edilmemiş

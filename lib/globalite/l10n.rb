@@ -88,7 +88,7 @@ module Globalite
     # If the country isn't unknown to the system, the country will be set as :*
     #
     def country=(country)
-      load_localization! if defined? RAILS_ENV && RAILS_ENV == 'development'
+      load_localization! if (defined? RAILS_ENV) && (RAILS_ENV == 'development')
       country = country.to_s.upcase.to_sym if country.class == Symbol
       country = country.upcase.to_sym if country.class == String && !country.empty?
 

@@ -244,6 +244,11 @@ describe "a localization key (in general)" do
     :plural.l.should == 'vo dvore 22 korovy'
     :second_plural.l.should == 'vo dvore 75 korov'
   end
+
+  it "should handle multiple pluralizations in the same string properly" do
+    Globalite.current_language = :fr
+    :double_pluralization.l.should == "2 erreurs et 5 erreurs"
+  end
 end
 
 describe "an alternative location with localization files" do

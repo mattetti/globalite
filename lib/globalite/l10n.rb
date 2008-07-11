@@ -163,7 +163,7 @@ module Globalite
       # the translation must include pluralize{count, singular string} to be translated
       # the translator can also pass the plural form if needed:
       #    pluralize{3, goose, geese}
-      localized = localized.gsub( /pluralize\{(.*)\}/){ |erb| pluralize(Regexp.last_match(1)) } if localized.is_a?(String) && (localized=~ /pluralize\{(.*)\}/)
+      localized = localized.gsub( /pluralize\{(.*?)\}/){ |erb| pluralize(Regexp.last_match(1)) } if localized.is_a?(String) && (localized=~ /pluralize\{(.*)\}/)
       
       # Set the locale back to normal
       #

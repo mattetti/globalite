@@ -196,7 +196,7 @@ describe "a localization key (in general)" do
     Globalite.language = :en
     Globalite.locale.should == :'en-*'
     
-    :welcome_friend.localize.should == "Welcome mate!"
+    :welcome_friend.localize.should =~ /Welcome( mate|, dude)\!/
     :error_message_exclusion.l.should == "is reserved"
   end
   

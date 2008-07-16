@@ -101,6 +101,10 @@ Get a number returned in currency, for instance if the locale was set to 'fr' th
 Get a distance of time in words localized.
 	distance_of_time_in_words(10.minutes.ago, Time.now)
 
+Get the %edit% and %new% verbs in the url tanslated
+	http://grandascenseurs.fr/ascenseurs/nouvelle
+	http://haberler.com.tr/haberler/17/duzenle
+
 Active record errors are automatically rendered in the locale language
 
 ==Localize field names in validator messages

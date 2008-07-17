@@ -8,7 +8,7 @@ error_message_accepted: muss akzeptiert werden.
 error_message_empty: darf nicht leer sein.
 error_message_blank: muss ausgefüllt werden.
 error_message_too_long: ist zu lang (höchstens %d Zeichen).
-error_message_too_short: ist zu kurz (mindestens  %d Zeichen).
+error_message_too_short: ist zu kurz (mindestens %d Zeichen).
 error_message_wrong_length: hat die falsche Länge (%d Zeichen).
 error_message_taken: ist bereits vergeben.
 error_message_not_a_number: ist keine Zahl.

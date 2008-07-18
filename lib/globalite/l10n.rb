@@ -283,7 +283,7 @@ module Globalite
 
     # Return a list of the Rails localization files
     def rails_localization_files
-      loc_files = Dir[File.join( RAILS_ROOT, '/vendor/plugins/globalite/lang/rails/', '*.{yml,yaml}')]
+      loc_files = Dir[File.join( File.dirname(__FILE__), '../../lang/rails/', '*.{yml,yaml}')]
     end
 
     # Interpolate a string using the passed arguments

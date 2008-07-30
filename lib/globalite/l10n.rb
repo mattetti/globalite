@@ -40,6 +40,11 @@ module Globalite
       @@ui_locales
     end
 
+    @@inflectors = {}
+    def inflectors
+      @@inflectors
+    end
+
     @@current_language = nil
     def current_language
       @@current_language || default_language
@@ -158,7 +163,7 @@ module Globalite
       # the translation must include pluralize{count, singular string} to be translated
       # the translator can also pass the plural form if needed:
       #    pluralize{3, goose, geese}
-      localized = localized.gsub( /pluralize\{(.*)\}/){ |erb| pluralize(Regexp.last_match(1)) } if localized.is_a?(String) && (localized=~ /pluralize\{(.*)\}/)
+      localized = localized.gsub( /pluralize\{(.*?)\}/){ |erb| pluralize(Regexp.last_match(1)) } if localized.is_a?(String) && (localized=~ /pluralize\{(.*)\}/)
       
       # Set the locale back to normal
       #
@@ -183,17 +188,26 @@ module Globalite
     # modified version of the Rails pluralize method from ActionView::Helpers::TextHelper module
     # TODO: load custom inflector based on the language one uses.
     def pluralize(l_string) #count, singular, plural = nil)
-      # map the arguments like in the original pluralize method
-      count, singular, plural = l_string.split(',').map{ |arg| arg.strip}
-      
-       "#{count} " + if count == 1 || count == '1'
-        singular
-      elsif plural
-        plural
-      elsif Object.const_defined?("Inflector")
-        Inflector.pluralize(singular)
+
+      if inflectors.include?(current_language) then
+        # We have custom inflector loaded - return it's result
+        inflectors[current_language].call(l_string)
+
       else
-        singular + "s"
+        # No custom inflectors - do the default stuff
+
+        # map the arguments like in the original pluralize method
+        count, singular, plural = l_string.split(',').map{ |arg| arg.strip}
+
+         "#{count} " + if count == 1 || count == '1'
+          singular
+        elsif plural
+          plural
+        elsif Object.const_defined?("Inflector")
+          Inflector.pluralize(singular)
+        else
+          singular + "s"
+        end
       end
     end
     
@@ -235,7 +249,7 @@ module Globalite
       end
       alias :load_translations! :load_localization!
       alias :load_localizations! :load_localization!
-      
+
       # Load the UI localization
       if ui_localization_files
         ui_localization_files.each do |file| 
@@ -255,8 +269,16 @@ module Globalite
             @@locales[@file_locale] = YAML.load_file(file).symbolize_keys
             @@ui_locales[locale_name("#{lang}-#{country}")] = "#{lang}-#{country}".to_sym
           end
+
         end
       end
+
+      # Load inflectors
+      inflector_localization_files.each do |file|
+          lang = File.basename(file, '.*')[0,2].downcase.to_sym
+          @@inflectors[lang] = eval("Proc.new { |l_string| "+File.readlines(file).join("\n")+" }")
+      end if inflector_localization_files
+
       localize_rails
       # Return the path of the localization files
       return "#{ui_localization_files} | #{rails_localization_files}".to_s
@@ -284,6 +306,17 @@ module Globalite
     # Return a list of the Rails localization files
     def rails_localization_files
       loc_files = Dir[File.join( RAILS_ROOT, '/vendor/plugins/globalite/lang/rails/', '*.{yml,yaml}')]
+    end
+
+    # Return a list of the localized inflectors
+    def inflector_localization_files
+      loc_files = Dir[File.join(RAILS_ROOT, 'lang/inflectors/', '*.{txt,rb}')]
+      unless @@localization_sources.empty?
+        @@localization_sources.each do |path|
+          loc_files += Dir[File.join(path, '../inflectors/*.{txt,rb}')]
+        end
+      end
+      loc_files
     end
 
     # Interpolate a string using the passed arguments

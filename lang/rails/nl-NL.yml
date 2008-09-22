@@ -13,7 +13,7 @@ error_message_wrong_length: heeft de verkeerde lengte (%d karakters).
 error_message_taken: is bezet.
 error_message_not_a_number: is geen getal.
 # ActionController::Base.resources_path_names
-resources_path_new: niew
+resources_path_new: nieuw
 resources_path_edit: bewerk
 # used by ActionView::Helpers::DateHelper.distance_of_time_in_words
 date_helper_less_than_x_seconds: minder dan %d seconden

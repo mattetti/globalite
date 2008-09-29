@@ -1,0 +1,357 @@
+locale_name: Dansk
+# ActiveRecord::Errors.default_error_messages
+error_message_inclusion: er ikke et gyldigt valg i listen
+error_message_exclusion: er reserveret
+error_message_invalid: er ugyldig
+error_message_confirmation: matcher ikke bekræftelsen
+error_message_accepted: skal være valgt
+error_message_empty: må ikke være tomt
+error_message_blank: skal udfyldes
+error_message_too_long: er for langt (maximum %d tegn)
+error_message_too_short: er for kort (minimum %d tegn)
+error_message_wrong_length: har forkert længde (skal være %d tegn)
+error_message_taken: er allerede anvendt
+error_message_not_a_number: er ikke et tal
+
+# used by ActionView::Helpers::DateHelper.distance_of_time_in_words
+date_helper_less_than_x_seconds: mindre end %d sekunder
+date_helper_half_a_minute: et halvt minut
+date_helper_less_than_a_minute: mindre end et minut
+date_helper_one_minute: 1 minut
+date_helper_x_minutes: %d minutter
+date_helper_one_hour: om 1 time
+date_helper_x_hours: om %d timer
+date_helper_one_day: 1 dag
+date_helper_x_days: %d dage
+date_helper_one_month: 1 m&aring;ned
+date_helper_x_months: %d m&aring;neder
+date_helper_one_year: 1 &aring;r
+date_helper_x_years: %d &aring;r
+
+# DON'T TRANSLATE, just order
+date_helper_order: [:day, :month, :year] #default Rails is US ordered: :order => [:year, :month, :day]
+
+date_helper_date_formats: # DON'T  TRANSLATE, RE ORDER
+  default: "%d-%m-%Y"
+  short: "%e. %b"
+  long: "%e. %B %Y"
+
+date_helper_time_formats: # DON'T  TRANSLATE, RE ORDER
+  default: "%a, %d. %b %Y, %H:%M:%S %z"
+  short: "%d. %b, %H:%M"
+  long: "%d. %B %Y, %H:%M"
+
+# added at the end of date if your date system doesn't use a 24 hours system
+#date_helper_am: am
+#date_helper_pm: pm
+    
+# used by ActionView::Helpers::NumberHelper.number_to_currency
+number_helper_unit: "DKK"
+number_helper_separator: "," #unit separator (between integer part and fraction part)
+number_helper_delimiter: "." #delimiter between each group of thousands. Example: 1.234.567 
+number_helper_order: [ number, unit ] 
+#to support for instance French format, the order is different: Unit comes last (ex. "1.234,00 €")
+
+# use by +Array#to_sentence()+
+array_connector: 'og'
+array_skip_last_comma: 'false'
+
+# Active Record error messages:
+active_record_helper_error_description: 'Der var et problem med de følgende felter:'
+active_record_helper_header_message: '{error_count} fejl forhindrede {failed_object} i at blive gemt'
+
+date_helper_month_names:
+ -              # Leave that line
+   -            # Leave that line
+ - januar
+ - februar
+ - marts
+ - april
+ - maj
+ - juni
+ - juli
+ - august
+ - september
+ - oktober
+ - november
+ - december
+
+date_helper_abbr_month_names:
+  -             # Leave that line
+    -           # Leave that line
+  - jan
+  - feb
+  - mar
+  - apr
+  - maj
+  - jun
+  - jul
+  - aug
+  - sep
+  - okt
+  - nov
+  - dec
+
+date_helper_day_names: 
+  - søndag
+  - mandag
+  - tirsdag
+  - onsdag
+  - torsdag
+  - fredag
+  - lørdag
+
+date_helper_abbr_day_names: 
+  - søn
+  - man
+  - tir
+  - ons
+  - tor
+  - fre 
+  - lør
+
+countries_list:
+  - Afghanistan
+  - Albanien
+  - Algeriet
+  - Amerikansk Samoa
+  - Andorra
+  - Angola
+  - Anguilla
+  - Antarktis
+  - Antigua og Barbuda
+  - Argentina
+  - Armenien
+  - Aruba
+  - Australien
+  - Østrig
+  - Azerbaijan
+  - Bahama-øerne
+  - Bahrain
+  - Bangladesh
+  - Barbados
+  - Belarus (Hviderusland)
+  - Belgien
+  - Belize
+  - Benin
+  - Bermuda
+  - Bhutan
+  - Bolivia
+  - Bosnien-Herzegovina
+  - Botswana
+  - Bouvet Island
+  - Brasilien
+  - British Indian Ocean Territory
+  - Brunei Darussalam
+  - Bulgarien
+  - Burkina Faso
+  - Burma
+  - Burundi
+  - Cambodia
+  - Cameroun
+  - Canada
+  - Kapverdiske Øer
+  - Cayman Islands
+  - Centralafricanske Republik
+  - Chad
+  - Chile
+  - Kina
+  - Christmas Island
+  - Cocos (Keeling) Islands
+  - Colombia
+  - Comorerne
+  - Congo
+  - Congo, den Democratiske Republik
+  - Cook Islands
+  - Costa Rica
+  - Elfenbenskysten
+  - Kroatien
+  - Cuba
+  - Cypern
+  - Den Tjekkiske Republik
+  - Danmark
+  - Djibouti
+  - Dominica
+  - Dominikanske Republik
+  - Østtimor (Timor Leste)
+  - Ecuador
+  - Egypten
+  - El Salvador
+  - England
+  - Ækvatorial Guinea
+  - Eritrea
+  - Spanien
+  - Estland
+  - Etiopien
+  - Falklands-øerne
+  - Færørne
+  - Fiji
+  - Finland
+  - Frankrig
+  - Fransk Guiana
+  - Fransk Polynesien
+  - French Southern Territories
+  - Gabon
+  - Gambia 
+  - Georgien
+  - Tyskland
+  - Ghana
+  - Gibraltar
+  - Storbritannien
+  - Grækenland
+  - Grønland
+  - Grenada
+  - Guadeloupe
+  - Guam
+  - Guatemala
+  - Guinea
+  - Guinea-Bissau
+  - Guyana
+  - Haiti
+  - Heard and Mc Donald Islands
+  - Honduras
+  - Hong Kong
+  - Ungarn
+  - Island
+  - Indien
+  - Indonesien
+  - Irland
+  - Israel
+  - Italien
+  - Iran
+  - Irak
+  - Jamaica
+  - Japan
+  - Jordan
+  - Kazakstan
+  - Kenya
+  - Kiribati
+  - Nordkorea
+  - Sydkorea
+  - Kuwait
+  - Kirgizistan
+  - Laos
+  - Letland
+  - Libanon
+  - Lesotho
+  - Liberia
+  - Liechtenstein
+  - Litauen
+  - Luxembourg
+  - Macau
+  - Makedonien
+  - Madagaskar
+  - Malawi
+  - Malaysia
+  - Maldiverne
+  - Mali
+  - Malta
+  - Marshall-øerne
+  - Martinique
+  - Mauritanien
+  - Mauritius
+  - Mayotte
+  - Mexico
+  - Micronesien
+  - Moldova
+  - Monaco
+  - Mongoliet
+  - Montserrat
+  - Marokko
+  - Mozambique
+  - Myanmar
+  - Namibia
+  - Nauru
+  - Nepal
+  - Holland
+  - Hollandske Antiller
+  - New Caledonia
+  - New Zealand
+  - Nicaragua
+  - Niger
+  - Nigeria
+  - Niue
+  - Norfolk Island
+  - Nordirland
+  - Northern Mariana Islands
+  - Norge
+  - Oman
+  - Pakistan
+  - Palau
+  - Panama
+  - Papua New Guinea
+  - Paraguay
+  - Peru
+  - Filippinerne
+  - Pitcairn
+  - Polen
+  - Portugal
+  - Puerto Rico
+  - Qatar
+  - Reunion
+  - Rumænien
+  - Rusland
+  - Rwanda
+  - St. Kitts og Nevis
+  - St. Lucia
+  - St. Vincent og Grenadinerne
+  - Samoa
+  - San Marino
+  - Sao Tomé og Principe
+  - Saudi Arabien
+  - Skotland
+  - Senegal
+  - Serbien og Montenegro
+  - Seychellerne
+  - Sierra Leone
+  - Singapore
+  - Slovakiske Republik
+  - Slovenien
+  - Solomon-øerne
+  - Somalia
+  - Sydafrica
+  - South Georgia and the South Sandwich Islands
+  - Sydkorea
+  - Spanien
+  - Sri Lanka
+  - St. Helena
+  - St. Pierre and Miquelon
+  - Suriname
+  - Svalbard og Jan Mayen-øerne
+  - Swaziland
+  - Sverige
+  - Schweiz
+  - Taiwan
+  - Tadjikistan
+  - Tanzania
+  - Thailand
+  - Togo
+  - Tokelau
+  - Tonga
+  - Trinidad
+  - Trinidad og Tobago
+  - Tunisien
+  - Tyrkiet
+  - Turkmenistan
+  - Tyrkiske og Caicos Islands
+  - Tuvalu
+  - Uganda
+  - Ukraine
+  - Forenede Arabiske Emirater
+  - UK
+  - USA
+  - United States Minor Outlying Islands
+  - Uruguay
+  - Uzbekistan
+  - Vanuatu
+  - Vatikanstaten
+  - Venezuela
+  - Vietnam
+  - Jomfruøerne (UK)
+  - Jomfruøerne (US)
+  - Wales
+  - Wallis and Futuna Islands
+  - Vestlige Sahara
+  - Yemen
+  - Zambia
+  - Zimbabwe

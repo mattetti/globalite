@@ -13,8 +13,9 @@ error_message_wrong_length: (حرف %d طول خاطئ   (يجب ان يكون
 error_message_taken: موجود بالفعل
 error_message_not_a_number: لبس رقم
 # ActionController::Base.resources_path_names
-resources_path_new: جديد
-resources_path_edit: تعديل
+# following lines need to use ASCII characters
+# resources_path_new: جديد
+# resources_path_edit: تعديل
 # used by ActionView::Helpers::DateHelper.distance_of_time_in_words
 date_helper_less_than_x_seconds: ثوان %d  اقل من  
 date_helper_half_a_minute: نصف دقيقة

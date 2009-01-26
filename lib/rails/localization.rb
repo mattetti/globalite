@@ -20,7 +20,7 @@ class Time
       cc = c.sub(/^%[EO]?(.)$/o, '%\\1')
       case cc
       when '%A'; o << :date_helper_day_names.l[wday]
-      when '%a'; o << :date_helper_abbr_day_names.l[wday] # -1 because Jan is mon 1 not 0, +2 to avoid the first two nils
+      when '%a'; o << :date_helper_abbr_day_names.l[wday]
       when '%B'; o << :date_helper_month_names.l[mon-1+2] # -1 because Jan is mon 1 not 0, +2 to avoid the first two nils
       when '%b'; o << :date_helper_abbr_month_names.l[mon-1+2] # -1 because Jan is mon 1 not 0, +2 to avoid the first two nils
         #when '%c'; o << :date_helper_time_formats.l[:default] ? :date_helper_date_formats.l[:default] : strftime('%Y-%m-%d')

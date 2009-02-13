@@ -10,6 +10,14 @@ end
 
 
 class Time
+  
+  def localized_sanitized_month_names
+    :date_helper_month_names.l.reject {|e| not e.kind_of? String}
+  end
+  
+  def localized_sanitized_abbr_month_names
+    :date_helper_abbr_month_names.l.reject {|e| not e.kind_of? String}
+  end
   # Acts the same as #strftime, but returns a localized version of the
   # formatted date/time string.
   def localize(format='default')
@@ -21,8 +29,8 @@ class Time
       case cc
       when '%A'; o << :date_helper_day_names.l[wday]
       when '%a'; o << :date_helper_abbr_day_names.l[wday]
-      when '%B'; o << :date_helper_month_names.l[mon-1+2] # -1 because Jan is mon 1 not 0, +2 to avoid the first two nils
-      when '%b'; o << :date_helper_abbr_month_names.l[mon-1+2] # -1 because Jan is mon 1 not 0, +2 to avoid the first two nils
+      when '%B'; o << localized_sanitized_month_names[mon-1]
+      when '%b'; o << localized_sanitized_abbr_month_names[mon-1]
         #when '%c'; o << :date_helper_time_formats.l[:default] ? :date_helper_date_formats.l[:default] : strftime('%Y-%m-%d')
       when '%p'; o << if hour < 12 then :date_helper_am.l else :date_helper_pm.l end
       else;      o << c
@@ -44,8 +52,8 @@ class Date
       case cc
       when '%A'; o << :date_helper_day_names.l[wday]
       when '%a'; o << :date_helper_abbr_day_names.l[wday] 
-      when '%B'; o << :date_helper_month_names.l[mon-1+2] # -1 because Jan is mon 1 not 0, +2 to avoid the first two nils
-      when '%b'; o << :date_helper_abbr_month_names.l[mon-1+2] # -1 because Jan is mon 1 not 0, +2 to avoid the first two nils
+      when '%B'; o << localized_sanitized_month_names[mon-1]
+      when '%b'; o << localized_sanitized_abbr_month_names[mon-1]
         #when '%c'; o << :date_helper_time_formats.l[:default] ? :date_helper_date_formats.l[:default] : strftime('%Y-%m-%d')
       when '%p'; o << if hour < 12 then :date_helper_am.l else :date_helper_pm.l end
       else;      o << c
